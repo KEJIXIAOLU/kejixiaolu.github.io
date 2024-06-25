@@ -13,15 +13,15 @@ body {
 .header .inner .logo{width:6em; float:left; font-size:20px; text-align:center;}
 .header .inner .logo h1{font-weight: bold;}
 .header .inner .nav{width:750px; float:left;}
-.header .inner .nav a{font-size:18px; padding:0 0.6em; color:#333; font-weight:bold;}
+.header .inner .nav a{font-size:1.3em; padding:0 0.6em; color:#333; font-weight:bold;}
 .header .inner .nav a:hover{color:#007be3}
 
 .container{width:100%; max-width:1920px; margin:20px auto; height:100%; overflow:hidden; border-radius:10px;}
 .container .left{width:100%; float:left; background:#FFF; box-shadow: 0 0 14px rgba(0,0,0,.04);}
-.container .left .item_list{width:23%; min-width:400px; height:100%; padding:0px; margin:1%; border-bottom:1px solid #eee; transition:all 0.5s; float:left; border-radius:10px; overflow:hidden;box-shadow: 0 0 20px rgba(0,0,0,.1);}
+.container .left .item_list{width:92%; min-width:440px; height:100%; padding:0px; margin:4%; border-bottom:1px solid #eee; transition:all 0.5s; float:left; border-radius:20px; overflow:hidden;box-shadow: 0 0 20px rgba(0,0,0,.1);}
 .container .left .item_list:hover{box-shadow: 0 0 20px rgba(0,0,0,.5);}
 .container .left .item_list img{width:100%; height:100%; float:left;}
-.container .left .item_list h2{padding:12px 20px; font-weight:bold; color:#333;float:left;}
+.container .left .item_list h2{padding:1em; font-weight:bold; color:#333;float:left; font-size: 2em}
 .container .left .item_list a{color:#333;}
 
 
