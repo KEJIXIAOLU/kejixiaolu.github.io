@@ -8,8 +8,8 @@
 .container{width:100%; max-width:1920px; margin:20px auto; height:100%; overflow:hidden;}
 .container .left{width:100%; float:left; background:#FFF; box-shadow: 0 0 14px rgba(0,0,0,.04); margin-bottom: 2em;}
 .container .left .video{width:94%; margin:0 auto;}
-.container .left p{font-size:1.2em; font-weight:normal;}
-.container .left p a{font-size:1.2em;text-decoration:underline; margin-bottom:20px; display:inline-block; color:#333;}
+.container .left p{font-size:1.5em; font-weight:normal;}
+.container .left p a{font-size:1.5em;text-decoration:underline; margin-bottom:20px; display:inline-block; color:#333;}
 .container .left p strong{font-size:1.2em; color:#333}
 .container .left h1{font-size:2.5em; color:#333; padding:20px 0px; width:94%; margin:0 auto;}
 .container .left .video h2{font-size:2em; color:#333; font-weight:bold; margin-bottom:0.2em;}
@@ -20,6 +20,7 @@
 .container .video_list .item_list img{width:100%; height:100%; float:left;}
 .container .video_list .item_list h2{padding:1em; font-size: 2em; font-weight:bold; color:#333;float:left;}
 .container .video_list .item_list a{color:#333;}
+.container .left h1{font-size:30px; color:#333; padding:20px 50px; font-weight:bold; margin: 0 auto 0.8em; line-height: 1.2em}
 
 .copy-text{display:block; text-align:right; cursor:pointer;font-size:14px;color:#CCC; padding-right:3px; position:absolute; right:0; top:0;}
 
