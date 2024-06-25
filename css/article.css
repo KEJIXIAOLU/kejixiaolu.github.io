@@ -18,6 +18,7 @@ body {
 .container{width:100%; max-width:1920px; margin:20px auto; height:100%; overflow:hidden;}
 .container .left{width:100%; max-width:1000px; background:#FFF; box-shadow: 0 0 14px rgba(0,0,0,.04); margin:0 auto; padding-bottom:20px; border-radius:10px;}
 .container .left .video{width:90%; margin:0 auto;}
+.container .left .video .date{color: #A6A6A6;}
 .container .left iframe{width:100%; min-height:506px; border-radius:10px;}
 .container .left p{font-size:16px; font-weight: inherit; margin:0 0 20px 0; color:#333;}
 .container .left p a{text-decoration:underline; color:#333}
@@ -40,7 +41,7 @@ body {
 .container .video_list .item_list h2{padding:12px 20px; font-weight:bold; color:#333;float:left;}
 .container .video_list .item_list a{color:#333;}
 
-.container .left h1{font-size:30px; color:#333; padding:20px 50px; font-weight:bold; margin-bottom:30px;}
+.container .left h1{font-size:30px; color:#333; padding:20px 50px; font-weight:bold; margin-bottom:20px;}
 .container .left .data{text-align:center; font-size:14px; padding:20px; margin:0 auto; width:96%; border-bottom:1px solid #eee;}
 .container .left .content{padding:20px; margin-top:10px; line-height:2;}
 .container .left .content img{max-width:860px;}
