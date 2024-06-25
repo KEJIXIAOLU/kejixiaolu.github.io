@@ -20,7 +20,7 @@
 .container .video_list .item_list img{width:100%; height:100%; float:left;}
 .container .video_list .item_list h2{padding:1em; font-size: 2em; font-weight:bold; color:#333;float:left;}
 .container .video_list .item_list a{color:#333;}
-.container .left h1{font-size:30px; color:#333; padding:20px 50px; font-weight:bold; margin: 0 auto 0.8em; line-height: 1.2em}
+.container .left h1{font-size:30px; color:#333; font-weight:bold; margin: 0 auto 0.8em; line-height: 1.2em}
 
 .copy-text{display:block; text-align:right; cursor:pointer;font-size:14px;color:#CCC; padding-right:3px; position:absolute; right:0; top:0;}
 
