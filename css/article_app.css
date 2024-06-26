@@ -1,8 +1,8 @@
 .header{width:100%; margin:0 auto; background:#FFF; box-shadow: 0 0 14px rgba(0,0,0,.04);}
 .header .inner{width:95%; height:5em; line-height:5em; margin:0 auto; color:#333;}
-.header .inner .logo{width:6em; float:left; font-size:1.3em; text-align:center; font-weight: bold; display: none;}
+.header .inner .logo{width:6em; float:left; font-size:1.3em; text-align:center; font-weight: bold;}
 .header .inner .nav{width:100%; float:left;}
-.header .inner .nav a{font-size:2em; padding:0 0.3em; color:#333;}
+.header .inner .nav a{font-size:2em; padding:0 0.4em; color:#333;}
 .header .inner .nav a:hover{color:#007be3}
 
 .container{width:100%; max-width:1920px; margin:20px auto; height:100%; overflow:hidden;}
