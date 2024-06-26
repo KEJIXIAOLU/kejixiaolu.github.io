@@ -19,6 +19,7 @@ body {
 .container .left{width:100%; max-width:1000px; background:#FFF; box-shadow: 0 0 14px rgba(0,0,0,.04); margin:0 auto; padding-bottom:20px; border-radius:10px;}
 .container .left .video{width:90%; margin:0 auto;}
 .container .left .video .date{color: #A6A6A6;}
+.container .left .video img{max-width: 100%;}
 .container .left iframe{width:100%; min-height:506px; border-radius:10px;}
 .container .left p{font-size:16px; font-weight: inherit; margin:0 0 20px 0; color:#333;}
 .container .left p a{text-decoration:underline; color:#0164b8}
