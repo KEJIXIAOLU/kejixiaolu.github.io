@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>一键搭建X-UI面板，安全稳定的专属节点搭建方法，VLESS+Vision+Reality 协议，晚高峰高速稳定，4K秒开的科学上网线路体验</title>
+<link href="css/global.css" rel="stylesheet" type="text/css" />
+<link href="css/article.css" rel="stylesheet" type="text/css" />
+<link href="css/article_app.css" rel="stylesheet" type="text/css" media="screen and (max-width:999px)" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D871VH8G9E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D871VH8G9E');
+</script>
+</head>
+
+<body>
+<header class="header">
+<div class="inner">
+<!--<div class="logo">科技小露</div>-->
+<div class="nav">
+<a href="https://kejixiaolu.github.io/">科技小露</a> <a href="https://www.youtube.com/@xlu/search?query=%E6%9C%BA%E5%9C%BA" target="_blank">机场</a> <a href="https://www.youtube.com/@xlu/search?query=%E6%90%AD%E5%BB%BA" target="_blank">搭建</a> <a href="https://www.youtube.com/@xlu/search?query=tiktok" target="_blank">TikTok</a> <a href="https://drive.google.com/drive/u/1/folders/1J0KKBOJ2TXK4ineuJ1aiRWl2dyVsEPN4" target="_blank">软件</a> <a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">油管</a> <a href="https://www.youtube.com/@xlu/community" target="_blank">社区交流</a>
+</div>
+</div>
+</header>
+
+<div class="container">
+<div class="left">
+<h1>一键搭建X-UI面板，安全稳定的专属节点搭建方法，VLESS+Vision+Reality 协议，晚高峰高速稳定，4K秒开的科学上网线路体验</h1>
+<div class="video">
+<!--内容区域开始-->
+
+<p class="date"> 🕓2023年11月06日</p>
+<p>视频教程：▶️<a href="https://youtu.be/Hg3A_cUYNaI" target="_blank">https://youtu.be/Hg3A_cUYNaI</a></p>
+
+<p>为了应对 TLS in TLS 和指纹识别等阻断或封禁的风险，Xray-core 团队推出了 VLESS Vision 和 VLESS Reality 两种新颖的技术方案。它们能够有效地隐藏和保护流量的特征，提高安全性和稳定性。</p>
+<p> <strong>使用X-UI搭建代理服务，具有以下优点：</strong></p>
+<p> 1、支持系统状态监控：如CPU、内存、硬盘等状态<br>
+   2、支持多用户多协议，网页可视化操作<br>
+   3、支持流量统计<br>
+   4、支持自定义Xray配置模板<br>
+   5、支持HTTPS访问面板<br>
+   6、支持面板自定义端口，账号与密码<br>
+   7、快速生成分享连接或二维码<br>
+   8、支持CDN套用<br>
+9、支持Fallback分流设置</p>
+<p style="font-size: 18px"><strong>  一、准备工作</strong></p>
+<p>  1、一台境外VPS主流系统，例如：Debian/Ubuntu/CentOS</p>
+<p>本期搭建用的VPS网址：<a href="https://bit.ly/3hBENuF" target="_blank">https://bit.ly/3hBENuF</a><br>
+  <br>
+Vultr VPS 购买地址：<a href="https://www.vultr.com/?ref=9554306" target="_blank">https://www.vultr.com/?ref=9554306</a></p>
+<p>Vultr是按时计费，不用了可以随时删除服务器就停止收费了，最低6$/月。</p>
+<p> 2、下载并安装FinalShell SSH工具</p>
+<p>Windows版下载地址：<a href="http://www.hostbuf.com/downloads/finalshell_install.exe" target="_blank">http://www.hostbuf.com/downloads/finalshell_install.exe</a></p>
+<p>macOS版下载地址：<a href="http://www.hostbuf.com/downloads/finalshell_install.pkg" target="_blank">http://www.hostbuf.com/downloads/finalshell_install.pkg</a></p>
+<p><strong style="font-size: 18px">二、搭建步骤</strong></p>
+<p> <strong>安装更新运行环境</strong></p>
+<p>下面环境的安装方式，大家根据自己的系统选择命令安装就好了。<br>
+  1、Debian/Ubuntu系统执行以下命令：<br>
+<p class="copy_layout">
+<span class="copy-text" id="copyButton1">复制</span>
+<span class="copy-content" id="copyText1">
+apt update -y &amp;&amp; apt install -y curl &amp;&amp; apt install -y socat
+</span>
+</p>
+  <br>
+  
+  2、CentOS系统执行以下命令：</p>
+	
+	<p class="copy_layout">
+<span class="copy-text" id="copyButton2">复制</span>
+<span class="copy-content" id="copyText2">
+yum update -y &amp;&amp; yum update -y &amp;&amp; yum install -y socat
+</span>
+</p>
+<p> <br>
+  <br>
+  <strong style="font-size: 18px">三、安装 X-ui 面板</strong></p>
+	
+	<p class="copy_layout">
+<span class="copy-text" id="copyButton3">复制</span>
+<span class="copy-content" id="copyText3">
+bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/956bf85bbac978d56c0e319c5fac2d6db7df9564/install.sh) 0.3.4.4
+</span>
+</p>
+	
+<p> <br>
+</p>
+<p> <strong>X-ui 管理面板设置</strong><br>
+  添加证书和密钥路径，重启面板<br>
+通过域名访问x-ui 管理面板：https://域名:54321</p>
+<p>注意事项：如果你点了 X-ui 面板设置，第一次进入的时候会自动帮你更改网址路径，点击确认，会自动跳转到新网址，下次再进入面板就需要通过这个新网址才能进入，<br>
+  建议将其保存为书签，防止忘记了。</p>
+<p>--------------------------------</p>
+<p style="font-size: 18px"><strong> 搭建 Vision 节点申请证书</strong></p>
+<p> 1、安装证书工具<br>
+</p>
+	<p class="copy_layout">
+<span class="copy-text" id="copyButton4">复制</span>
+<span class="copy-content" id="copyText4">
+curl https://get.acme.sh | sh; apt install socat -y || yum install socat -y; ~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+</span>
+</p>
+	
+<p> <br>
+</p>
+<p> 2、申请证书<br>
+</p>
+	
+	<p class="copy_layout">
+<span class="copy-text" id="copyButton5">复制</span>
+<span class="copy-content" id="copyText5">
+~/.acme.sh/acme.sh  --issue -d 你的域名 --standalone -k ec-256 --force --insecure
+</span>
+</p>
+	
+<p> </p>
+<p>这里需要更改你的域名，如果出现提示错误，可能是需要放行80端口。</p>
+<p> 3、安装证书</p>
+	
+	<p class="copy_layout">
+<span class="copy-text" id="copyButton6">复制</span>
+<span class="copy-content" id="copyText6">
+~/.acme.sh/acme.sh --install-cert -d 你的域名 --ecc --key-file /etc/x-ui/server.key --fullchain-file /etc/x-ui/server.crt
+</span>
+</p>
+	
+<p> <br>
+</p>
+<p style="font-size: 18px"><strong> 四、各平台客户端</strong></p>
+<p>v2rayNG【需要最新版本】</p>
+<p>Windows（v2rayN）：<a href="https://github.com/2dust/v2rayN/releases/tag/6.23" target="_blank">https://github.com/2dust/v2rayN/releases/tag/6.23</a></p>
+<p>Android（v2rayNG）：<a href="https://github.com/2dust/v2rayNG/releases/tag/1.8.5" target="_blank">https://github.com/2dust/v2rayNG/releases/tag/1.8.5</a></p>
+<p>IOS（shadowrocket）：<a href="https://apps.apple.com/app/shadowrocket/id932747118" target="_blank">https://apps.apple.com/app/shadowrocket/id932747118</a><br>
+</p>
+<p> <strong style="font-size: 18px">五、放行端口</strong><br>
+放行指令是一样的，只要将端口443为任意端口就可以了。</p>
+<p> 放行 443 端口</p>
+<p> iptables -I INPUT -p tcp --dport 443 -j ACCEPT</p>
+<p> 放行 54321 端口</p>
+<p> iptables -I INPUT -p tcp --dport 54321 -j ACCEPT<br>
+</p>
+<p> <strong><span style="font-size: 18px">六、检测端口是否被封</span></strong><br>
+端口被封的原因是多方面的，目前并没有哪一种节点可以保证不被封，本期讲的这三种方式也不例外，所以如果你的节点突然无法使用了，可以用以下方式进行排查。</p>
+<p>打开 <a href="https://ping.pe/" target="_blank">ping.pe</a></p>
+<p>输入 IP 检测 ping 可用</p>
+<p>输入 IP:Port 检查端口是否可用</p>
+<p>主要是看最后几个是否为绿色</p>
+<p></p>
+	<script type="text/javascript" src="css/copytext.js"></script>
+<!--内容区域结束-->
+</div>
+</div>
+	
+<div class="video_list">
+<!--相关视频开始-->
+
+
+<!--相关视频结束-->
+</div>
+
+</div>
+
+<footer class="footer">
+<div class="footer_nav">
+Copyright &copy; 2024 科技小露 
+<a href="index.html">首页</a><a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube频道</a><a href="contact.html">联系我们</a> </div>
+<div class="tips">
+我是小露，我的博客主要分享科技和软件教学视频，偶尔也会分享生活vlog，谢谢你的关注！<br>
+*本站部分内容来自网络，如果您是内容或软件的作者，不希望您的内容在本站展示，请联系我们，谢谢！
+</div>
+</footer>
+
+</body>
+</html>
