@@ -20,6 +20,10 @@ body {
 .container .left .video{width:90%; margin:0 auto;}
 .container .left .video .date{color: #A6A6A6;}
 .container .left .video img{max-width: 100%;}
+.container .left .video ol li{list-style: disc;}
+.container .left .video .link_btn{display: inline-block;}
+.container .left .video .link_btn a{display: inline-block; font-size: 1.0em; line-height: 2.6em; border-radius: 3px; text-decoration: none; font-weight: bold; padding: 0 1.2em; background: #0693e3; color: #FFFFFF;}
+.container .left .video .link_btn a:hover{opacity: .85;}
 .container .left iframe{width:100%; min-height:506px; border-radius:10px;}
 .container .left p{font-size:16px; font-weight: inherit; margin:0 0 20px 0; color:#333;}
 .container .left p a{text-decoration:underline; color:#0164b8}
