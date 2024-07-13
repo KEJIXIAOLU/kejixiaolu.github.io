@@ -24,7 +24,8 @@ body {
 .container .left .item_list h2{padding:12px 20px; font-weight:bold; color:#333;float:left;}
 .container .left .item_list a{color:#333;}
 
-
+.container .left .layout_content a{color:#007be3;text-decoration: underline;}
+.container .left .layout_content a:hover{color:#0066bc}
 .container .left h1{font-size:28px; font-weight:bold; color:#333; padding:30px 20px 5px 20px; text-align:center}
 .container .left .data{text-align:center; font-size:14px; padding:20px; margin:0 auto; width:96%; border-bottom:1px solid #eee;}
 .container .left .content{padding:20px; margin-top:10px; line-height:2;}
@@ -43,6 +44,14 @@ body {
 .container .left .sitemap div{line-height:1.5; border-bottom:1px dashed #eee;margin-bottom:10px; padding:10px;}
 .container .left .sitemap a{margin-right:10px;white-space:nowrap;}
 .container .left .sitemap a:nth-child(1){font-weight:bold;}
+.container .left ol li{list-style: disc;}
+.container .left .link_btn{display: inline-block;}
+.container .left .link_btn a{display: inline-block; font-size: 1.0em; line-height: 2.6em; border-radius: 3px; text-decoration: none; font-weight: bold; padding: 0 1.2em; background: #0693e3; color: #FFFFFF;}
+.container .left .link_btn a:hover{opacity:.85; color: #FFFFFF;}
+.container .left .green a {background: #33a752;}
+.container .left .layout_content{max-width: 95%; margin: 0 auto;}
+.container .left .layout_content hr{border:none; border-bottom: 1px dashed #ccc;margin: 5px 0;}
+
 
 .nva01{width:900px; height:14px; line-height:14px; margin:15px auto 0; font-size:14px;}
 .nva01 a{margin:0 5px;}
