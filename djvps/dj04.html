@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>一键搭建X-UI面板，安全稳定的专属节点搭建方法，VLESS+Vision+Reality 协议，晚高峰高速稳定，4K秒开的科学上网线路体验</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css" />
+<link href="../css/article.css" rel="stylesheet" type="text/css" />
+<link href="../css/article_app.css" rel="stylesheet" type="text/css" media="screen and (max-width:999px)" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D871VH8G9E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D871VH8G9E');
+</script>
+</head>
+
+<body>
+<header class="header">
+<div class="inner">
+<!--<div class="logo">科技小露</div>-->
+<div class="nav">
+<a href="https://kejixiaolu.github.io/">科技小露</a>
+<a href="../jichang.html">机场评测</a>
+<a href="../tiktok.html">TikTok</a>
+<a href="../djvps.html">搭建</a>
+<a href="../wangzhan.html">网站</a>
+<a href="../ruanjian.html">软件</a>
+<a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube</a>
+</div>
+</div>
+</header>
+
+<div class="container">
+<div class="left">
+<h1>最屌协议 Hysteria2 节点搭建，抢占宽带，拯救垃圾线路！提升上网速度</h1>
+<div class="video">
+<!--内容区域开始-->
+
+<p class="date"> 🕓2024年9月18日</p>
+<p>视频教程：▶️<a href="https://youtu.be/Hg3A_cUYNaI" target="_blank">https://youtu.be/Hg3A_cUYNaI</a></p>
+
+<p>Hysteria2是一款基于HTTP/1.3 QUIC魔改的翻墙协议，底层是用UDP协议进行数据传输，能够在网络拥堵、丢包等恶劣环境中提升科学上网体验。<br>
+  Hysteria2通过修改过的拥塞控制算法来最大化吞吐量，最大限度榨干代理节点服务器的网速，拯救垃圾vps。<br>
+  Hysteria2相比Hysteria1，大幅提升了稳定性，支持nginx反代伪装，预防长城防火墙gfw的主动探测，有效减少被封锁的概率。<br>
+  项目地址：<a href="https://v2.hysteria.network/zh/" target="_blank">https://v2.hysteria.network/zh/</a><br>
+  项目github地址：<a href="https://github.com/apernet/hysteria" target="_blank">https://github.com/apernet/hysteria</a></p>
+<p><img src="images/dj23.png" width="900" height="470" alt=""/></p>
+<p><strong>Hysteria2节点搭建步骤</strong></p>
+<p><strong>  一、准备工作</strong></p>
+<p>  1、一台境外VPS主流系统，例如：Debian/Ubuntu/CentOS<br>
+  本期搭建用的VPS网址：<a href="https://bit.ly/3hBENuF" target="_blank">https://bit.ly/3hBENuF</a><br>
+  --------------------------<br>
+Vultr  注册地址：<a href="https://www.vultr.com/?ref=9554306" target="_blank">https://www.vultr.com/?ref=9554306</a><br>
+新手推荐使用 Vultr 服务器，按时计费，不用了可以随时删除服务器就停止收费了，最低6$/月。</p>
+<p> 2、下载并安装FinalShell SSH工具<br>
+  Windows版下载地址：<a href="http://www.hostbuf.com/downloads/finalshell_install.exe" target="_blank">点击下载</a><br>
+  macOS版下载地址：<a href="http://www.hostbuf.com/downloads/finalshell_install.pkghttp://www.hostbuf.com/downloads/finalshell_install.pkg" target="_blank">点击下载</a></p>
+<p><strong style="font-size: 18px">二、搭建步骤</strong></p>
+<p><strong>更新 VPS 系统，安装组件</strong></p>
+<p>下面环境的安装方式，大家根据自己的系统选择命令安装就好了。<br>
+  1、Debian/Ubuntu系统执行以下命令：<br>
+<p class="copy_layout">
+<span class="copy-text" id="copyButton1">复制</span>
+<span class="copy-content" id="copyText1">
+apt update -y &amp;&amp; apt install -y curl &amp;&amp; apt install -y socat
+</span>
+</p>
+  <br>
+  
+  <span style="color: #333">2、<strong>CentOS系统</strong></span>执行以下命令：
+  </p>
+	
+	<p class="copy_layout">
+<span class="copy-text" id="copyButton2">复制</span>
+<span class="copy-content" id="copyText2">
+yum update -y &amp;&amp; yum update -y &amp;&amp; yum install -y socat
+</span>
+</p>
+<p><br>
+  <strong style="font-size: 18px">三、Hysteria 2 一键安装脚本</strong></p>
+	
+	<p class="copy_layout">
+<span class="copy-text" id="copyButton3">复制</span>
+<span class="copy-content" id="copyText3">
+wget -N --no-check-certificate https://raw.githubusercontent.com/flame1ce/hysteria2-install/main/hysteria2-install-main/hy2/hysteria.sh && bash hysteria.sh
+ </span>
+</p>
+	
+<p><br>
+  <strong>四、Hysteria 相关命令</strong></p>
+	
+	<p class="copy_layout">
+  <span class="copy-text" id="copyButton4">复制</span>
+  <span class="copy-content" id="copyText4">
+    systemctl start hysteria-server.service    # 启动 hysteria 服务<br>
+	
+systemctl enable hysteria-server.service   # 设置 hysteria 服务 开机自启<br>
+
+systemctl restart hysteria-server.service  # 重启 hysteria 服务<br>
+
+systemctl stop hysteria-server.service     # 停止 hysteria 服务<br>
+
+systemctl status hysteria-server.service   # 查看 hysteria 服务 状态
+ </span>
+</p>
+	
+<p><br>
+  <strong>五、</strong><strong>开启云服务器端口</strong></p>
+<p>节点如果不能正常使用，请先放行端口，将 443 改为你节点的端口，然后，再将指令复制到搭建工具，再点回车。</p>
+<p><span class="copy-text" id="copyButton5">复制</span>
+  <span class="copy-content" id="copyText5">
+    iptables -I INPUT -p tcp --dport 443 -j ACCEPT
+    
+    </span></p>
+	
+	
+<p><br>
+  <strong>六、客户端配置</strong></p>
+<p><span style="font-size: 16px">1、<strong>Windows</strong> 建议使用 V2rayN，<a href="https://github.com/2dust/v2rayN/releases/latest" target="_blank">点击下载&gt;&gt;</a></span><br>
+  如果你不清楚下载哪个文件，请下载 “zz_v2rayN-With-Core-SelfContained.7z” 解压使用。</p>
+<p>2、<strong>IOS/MAC </strong>建议使用  Shadowrocket<br>
+  需要使用美区 AppleID 登录 App Store 下载，如果没有美区ID，可以点击免费申请一个 <a href="https://github.com/KEJIXIAOLU/APPLE-ID.git" target="_blank">美区AppleID&gt;&gt;</a></p>
+<p>3、<strong>安卓手机</strong> 建议使用 Hiddify或者NekoBox<br>
+  可以在 Google Play 商店下载，或者<a href="https://apkpure.net/cn" target="_blank">APK安卓下载&gt;&gt;</a></p>
+<p><strong>七、常见问题及解决方法：</strong></p>
+<p>1、搭建的账号之前能用，突然不能用了，怎么解决？</p>
+<p>  A：如果ip不能ping通，FinalShell不能直接连接vps服务器，说明ip被墙了，需要换ip。vultr开通和删除服务器非常方便，新服务器即新ip，为了保证开通的新服务器ip和旧ip不一样，先开新服务器出现ip后再删旧服务器。其它大多数vps服务商换ip都要额为收费。<br>
+  B: 如果ip正常，那么多半是端口号被封了，此时需要换端口号，可以重新搭建。</p>
+<p>2、需要安装bbr加速吗？</p>
+<p> bbr加速是tcp加速，而hysteria是Quic(udp)协议。所以不用再部署bbr加速，当然自己想部署也可以，部署bbr加速可参考其它教程。</p>
+<p>&nbsp;</p>
+<p></p>
+	<script type="text/javascript" src="../css/copytext.js"></script>
+<!--内容区域结束-->
+</div>
+</div>
+	
+<div class="video_list">
+<!--相关视频开始-->
+
+
+<!--相关视频结束-->
+</div>
+
+</div>
+
+<footer class="footer">
+<div class="footer_nav">
+Copyright &copy; 2024 科技小露 
+<a href="../index.html">首页</a><a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube频道</a><a href="../contact.html">联系我们</a> </div>
+<div class="tips">
+我是小露，我的博客主要分享科技和软件教学视频，偶尔也会分享生活vlog，谢谢你的关注！<br>
+*本站部分内容来自网络，如果您是内容或软件的作者，不希望您的内容在本站展示，请联系我们，谢谢！
+</div>
+</footer>
+
+</body>
+</html>
