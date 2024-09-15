@@ -58,7 +58,7 @@ Vultr  注册地址：<a href="https://www.vultr.com/?ref=9554306" target="_blan
 <p> 2、下载并安装FinalShell SSH工具<br>
   Windows版下载地址：<a href="http://www.hostbuf.com/downloads/finalshell_install.exe" target="_blank">点击下载</a><br>
   macOS版下载地址：<a href="http://www.hostbuf.com/downloads/finalshell_install.pkghttp://www.hostbuf.com/downloads/finalshell_install.pkg" target="_blank">点击下载</a></p>
-<p><strong style="font-size: 18px">二、搭建步骤</strong></p>
+<p><strong>二、搭建步骤</strong></p>
 <p><strong>更新 VPS 系统，安装组件</strong></p>
 <p>下面环境的安装方式，大家根据自己的系统选择命令安装就好了。<br>
   1、Debian/Ubuntu系统执行以下命令：<br>
@@ -68,10 +68,8 @@ Vultr  注册地址：<a href="https://www.vultr.com/?ref=9554306" target="_blan
 apt update -y &amp;&amp; apt install -y curl &amp;&amp; apt install -y socat
 </span>
 </p>
-  <br>
+	<p> 2、CentOS系统执行以下命令：</p>
   
-  <span style="color: #333">2、<strong>CentOS系统</strong></span>执行以下命令：
-  </p>
 	
 	<p class="copy_layout">
 <span class="copy-text" id="copyButton2">复制</span>
@@ -80,7 +78,7 @@ yum update -y &amp;&amp; yum update -y &amp;&amp; yum install -y socat
 </span>
 </p>
 <p><br>
-  <strong style="font-size: 18px">三、Hysteria 2 一键安装脚本</strong></p>
+  <strong>三、Hysteria 2 一键安装脚本</strong></p>
 	
 	<p class="copy_layout">
 <span class="copy-text" id="copyButton3">复制</span>
@@ -92,7 +90,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/flame1ce/hyster
 <p><br>
   <strong>四、Hysteria 相关命令</strong></p>
 	
-	<p class="copy_layout">
+<p class="copy_layout">
   <span class="copy-text" id="copyButton4">复制</span>
   <span class="copy-content" id="copyText4">
     systemctl start hysteria-server.service    # 启动 hysteria 服务<br>
@@ -110,16 +108,18 @@ systemctl status hysteria-server.service   # 查看 hysteria 服务 状态
 <p><br>
   <strong>五、</strong><strong>开启云服务器端口</strong></p>
 <p>节点如果不能正常使用，请先放行端口，将 443 改为你节点的端口，然后，再将指令复制到搭建工具，再点回车。</p>
-<p><span class="copy-text" id="copyButton5">复制</span>
+<p class="copy_layout">
+<span class="copy-text" id="copyButton5">复制</span>
   <span class="copy-content" id="copyText5">
     iptables -I INPUT -p tcp --dport 443 -j ACCEPT
     
-    </span></p>
+    </span>
+</p>
 	
 	
 <p><br>
   <strong>六、客户端配置</strong></p>
-<p><span style="font-size: 16px">1、<strong>Windows</strong> 建议使用 V2rayN，<a href="https://github.com/2dust/v2rayN/releases/latest" target="_blank">点击下载&gt;&gt;</a></span><br>
+<p><span>1、<strong>Windows</strong> 建议使用 V2rayN，<a href="https://github.com/2dust/v2rayN/releases/latest" target="_blank">点击下载&gt;&gt;</a></span><br>
   如果你不清楚下载哪个文件，请下载 “zz_v2rayN-With-Core-SelfContained.7z” 解压使用。</p>
 <p>2、<strong>IOS/MAC </strong>建议使用  Shadowrocket<br>
   需要使用美区 AppleID 登录 App Store 下载，如果没有美区ID，可以点击免费申请一个 <a href="https://github.com/KEJIXIAOLU/APPLE-ID.git" target="_blank">美区AppleID&gt;&gt;</a></p>
