@@ -54,11 +54,12 @@ GitHub 地址：<a href="https://github.com/cmliu/edgetunnel" target="_blank">�
   2、域名一个（虽说可以不使用域名，但是推荐大家还是购买自己的域名，毕竟不贵，一年才 10 元 RMB） 推荐在 Namesilo 进行购买，因为他的 WHOIS 隐私 是免费的，可以适当的进行一下隐私保护，而且域名还都挺便宜的。<br>
 Namesilo 域名地址：<a href="https://www.namesilo.com/?rid=fe81174he" target="_blank">点击访问</a> （新用户1美元优惠券：kejixiaolu）<br>
 美国地址生成器：<a href="https://www.meiguodizhi.com/" target="_blank" rel="noopener">点击生成<br>
-</a>3、托管域名到 Cloudflare<br>
+</a>3、托管域名到 Cloudflare。<br>
+域名托管CF教程：<a href="https://youtu.be/1GtDTWybJNM?si=tEiYfkfgu_mvEYn8" target="_blank">https://youtu.be/1GtDTWybJNM?si=tEiYfkfgu_mvEYn8</a><br>
 </p>
 <p> <strong>CloudFlare 部署免费节点</strong></p>
 <p> <strong>下载源文件</strong><br>
-下载作者的 Worker 文件：<a href="https://github.com/KEJIXIAOLU/gongxiang/releases/download/worker/worker.zip" target="_blank">点击下载 worker.zip</a></p>
+下载作者的 <a href="https://github.com/KEJIXIAOLU/gongxiang/releases/download/worker/worker.zip">Worker</a> 文件：<a href="https://github.com/KEJIXIAOLU/gongxiang/releases/download/worker/worker.zip" target="_blank">点击下载 worker.zip</a></p>
 <p> <strong>Pages 部署 VLESS</strong><br>
 来到 Cloudflare 首页，点击 Workers 和 Pages ，点击 Pages  ，点击 使用直接上传创建 – 上传资产。</p>
 <p><img src="images/dj09.png" width="900" height="383" alt=""/></p>
@@ -71,7 +72,7 @@ Namesilo 域名地址：<a href="https://www.namesilo.com/?rid=fe81174he" target
 <p>回到刚才的项目，找到设置 – 环境变量 – 添加变量，变量名称：UUID ，变量值为刚才生成的 UUID ，点击保存！</p>
 <p><img src="images/dj12.png" width="900" height="404" alt=""/></p>
 <p><strong style="color: #000000">重新部署 Pages </strong></p>
-<p>回到项目，找到 部署，点击下面的 创建新部署，再次上传刚才的 <a href="https://github.com/KEJIXIAOLU/gongxiang/releases/download/worker/worker.zip" target="_blank"> worker.zip </a>文件，保存并部署！</p>
+<p>回到项目，找到 部署，点击下面的 创建新部署，再次上传刚才的<a href="https://github.com/KEJIXIAOLU/gongxiang/releases/download/worker/worker.zip" target="_blank">  worker.zip </a>文件，保存并部署！</p>
 <p><img src="images/dj13.png" width="900" height="327" alt=""/></p>
 <p>这样，我们点击上图中的 访问站点，若是有内容出现，证明部署成功</p>
 <p>我们可以访问 https://域/UUID ，来查看我们的节点。</p>
