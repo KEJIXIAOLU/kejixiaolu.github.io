@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>一键搭建X-UI面板，安全稳定的专属节点搭建方法，VLESS+Vision+Reality 协议，晚高峰高速稳定，4K秒开的科学上网线路体验</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css" />
+<link href="../css/article.css" rel="stylesheet" type="text/css" />
+<link href="../css/article_app.css" rel="stylesheet" type="text/css" media="screen and (max-width:999px)" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D871VH8G9E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D871VH8G9E');
+</script>
+</head>
+
+<body>
+<header class="header">
+<div class="inner">
+<!--<div class="logo">科技小露</div>-->
+<div class="nav">
+<a href="https://kejixiaolu.github.io/">科技小露</a>
+<a href="../jichang.html">机场评测</a>
+<a href="../tiktok.html">TikTok</a>
+<a href="../djvps.html">搭建</a>
+<a href="../wangzhan.html">网站</a>
+<a href="../ruanjian.html">软件</a>
+<a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube</a>
+</div>
+</div>
+</header>
+
+<div class="container">
+<div class="left">
+<h1>3x-ui面板搭建！一键搭建xray面板科学上网，轻松自建vps节点<br>
+</h1>
+<div class="video">
+<!--内容区域开始-->
+
+<p class="date"> 🕓2025年1月28日</p>
+<p>视频教程：▶https://youtu.be/BzjNZFCvBcY</p>
+<p><strong>一、什么是3x-ui</strong><br>
+3x-ui是一个支持多协议、多用户的Xray面板，具有过期日期、流量和IP限制功能。它能够同时支持Vmess、Vless、Trojan、<br>
+ShadowSocks和Wireguard等多种协议，为用户提供更灵活的选择。通过该面板，用户可以轻松管理多个用户账户，设置过期日期和流量限制，同时对IP进行限制，确保服务器资源的合理利用和安全性。<br>
+Xray面板的这些功能使得它成为搭建和管理代理服务器的理想选择，特别适用于需要高效管理和安全控制的场景。</p>
+<p>3X-UI开源项目地址:<a href="https://github.com/MHSanaei/3x-ui" target="_blank">https://github.com/MHSanaei/3x-ui</a></p>
+<p><strong>3X-ui 面板特点</strong></p>
+<ol>
+  <li>系统状态监控</li>
+  <li>支持多用户、多协议，网页可视化操作</li>
+  <li>支持协议，包括 VMESS、VLESS、Trojan、Shadowsocks、Dokodemo-door、Socks、HTTP、wireguard</li>
+  <li> 支持 XTLS 原生协议，包括 RPRX-Direct、Vision、REALITY<br>
+  </li>
+  <li>流量统计、流量限制、过期时间限制</li>
+  <li> 可定制的Xray配置模板</li>
+  <li> 支持HTTPS访问面板（自备域名+SSL证书）</li>
+  <li> 支持一键SSL证书申请及自动续订</li>
+  <li> 更多高级配置项请参考面板<a href="https://github.com/MHSanaei/3x-ui" target="_blank"> &gt;&gt;点击访问</a></li>
+</ol>
+<p><img src="images/dj32.png" width="850" height="456" alt=""/></p>
+<p><strong>二、准备工作</strong><br>
+  1、域名一个，并托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank">Cloudflare </a><br>
+  推荐在 <a href="https://www.namesilo.com/?rid=fe81174he" target="_blank">Namesilo </a> 进行购买（新用户1美元优惠券：kejixiaolu），因为他的 WHOIS 隐私 是免费的，可以适当的进行一下隐私保护，而且域名还都挺便宜的。（域名可以在 <a href="https://www.namesilo.com/?rid=fe81174he" target="_blank">Namesilo </a>解析，也可以将域名托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> Cloudflare</a><a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> </a>，解析更快。）<br>
+  检测服务器IP是否被封，确认IP可用。<br>
+  已经解析的域名，Win+R 输入 CMD 回车：键入ping 空格输入你的域名，检查一下是否可以 ping 通。</p>
+<p>  2、一台境外 VPS 主流系统。
+  例如：Debian 11+ / Ubuntu 20.04+ / CentOS 8+<br>
+  六六云VPS注册网址：<a href="https://kjxl.cc/666clouds" target="_blank">https://kjxl.cc/666clouds</a>（双ISP，支持tiktok）<br>
+ 全站九折优惠：XL666<br>
+年付七折优惠：year30off</p>
+<p>  Vultr 注册网址：<a href="https://www.vultr.com/?ref=9554306" target="_blank">https://www.vultr.com/?ref=9554306
+    </a>（按时计费，最低6$/月。）<br>
+</p>
+<p> 3、下载并安装 FinalShell SSH 工具<br>
+  Windows、macOS、Linux 版下载地址：<a href="https://www.hostbuf.com/t/988.html" target="_blank">点击下载</a></p>
+<p><strong>三、开始安装使用3x-ui</strong></p>
+<p><strong>3.1、一键安装依赖包</strong></p>
+<p> <strong>更新及安装组件</strong>。下面环境的安装方式，大家根据自己的系统选择命令安装就好了。<br>
+  1、Debian/Ubuntu系统：<br>
+</p>
+<p class="copy_layout">
+<span class="copy-text" id="copyButton1">复制</span>
+<span class="copy-content" id="copyText1">
+sudo apt install git -y
+</span>
+</p>
+  <p>
+    2、CentOS系统：</p>
+  <p class="copy_layout">
+	  <span class="copy-text" id="copyButton2">复制</span>
+    <span class="copy-content" id="copyText2">
+      sudo yum install git -y
+    </span>  </p>
+  <h3 tabindex="-1" dir="auto"><strong>如果执行后出错，请先更新系统</strong></h3>
+  <h3 tabindex="-1" dir="auto">（Debian/Ubuntu系统）<br>
+    <br>
+  </h3>
+  <p class="copy_layout">
+    <span class="copy-text" id="copyButton3">复制</span>
+    <span class="copy-content" id="copyText3">
+      sudo apt update -y</span>
+  </p>
+<p>（CentOS系统）</p>
+<p><span class="copy-text" id="copyButton4">复制</span>
+  <span class="copy-content" id="copyText4">
+    sudo yum update -y</span></p>	
+	<p><strong>3.2、一键安装脚本</strong></p>
+	<p class="copy_layout">
+  <span class="copy-text" id="copyButton5">复制</span>
+  <span class="copy-content" id="copyText5">
+	  bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)</span>	
+</p>
+<p>在运行脚本以后，会提示你Would you like to customize the Panel Port settings? (If not, a random port will be applied) [y/n]:<br>
+  这里的意思是：您是否要自定义面板端口设置？（如果不想，将应用随机端口），建议输入y进行自定义配置。</p>
+<p>Please set up the panel port:  后面输入你要设置的面板端口<br>
+  然后就安装完成了，下面会出现3x-ui面板URL地址、设置的端口、随机生成的用户登录信息。建议将信息保存下来，后面登录用。</p>
+<p><img src="images/dj29.png" width="600" height="169" alt=""/></p>
+<p><strong>3.3、申请SSL证书</strong></p>
+<p>以后想要在ssh连接里面进行3x-ui的设置，只需要输入 x-ui 然后回车就会出现3x-ui的管理面板，如下：</p>
+<p><img src="images/dj30.png" width="420" height="522" alt=""/></p>
+<p>输入数字 “18” SSL 证书管理，，接下来输入“1” Get SSL，开始申请证书，注意：这里需要放行80端口。</p>
+<p><img src="images/dj31.png" width="400" height="155" alt=""/></p>
+<p>按照提示输入解析好的域名并确保域名能ping通，在运行脚本以后，会提示你“Would you like to set this certificate for the panel? (y/n): ”这句话意思是问你：您想为面板设置此证书吗？这里我们输入“y”为面板设置刚申请的证书。</p>
+<p><strong>3.4、关闭防火墙/放行端口</strong></p>
+<p>关闭防火墙 #<br>
+</p>
+<p class="copy_layout"> <span class="copy-text" id="copyButton6">复制</span> <span class="copy-content" id="copyText6"> sudo ufw disable</span> </p>
+<p><strong></strong>需要放行的端口 # <br>
+  例：如需放行80端口，代码：ufw allow 80</p>
+<p class="copy_layout"> <span class="copy-text" id="copyButton7">复制</span> <span class="copy-content" id="copyText7"> ufw allow</span> </p>
+<p><strong>四、X-ui 面板登录</strong></p>
+<p>在浏览器输入3x-ui面板URL地址，在下方的语言设置里面设置为中文。然后输入你的用户名和密码进入。</p>
+<p><img src="images/dj32.png" width="850" height="456" alt=""/><br>
+</p>
+<p><strong>五、 BBR 加速</strong></p>
+<p>SSH 里面可以输入x-ui操作命令，输入“23” 启用 BBR ，根据提示再输入1，BBR就启用了</p>
+<p><img src="images/dj33.png" width="500" height="421" alt=""/><br>
+</p>
+<p><strong>验证 BBR 是否成功启用：</strong><br>
+  执行以下命令，确认 BBR 已被启用：</p>
+	<p class="copy_layout"> <span class="copy-text" id="copyButton8">复制</span> <span class="copy-content" id="copyText8"> sysctl net.ipv4.tcp_available_congestion_control</span> </p>
+<p>输出结果应包含 bbr，表示 BBR 已成功启用。</p>
+<p><strong>六、配置节点使用</strong></p>
+<p>6.1、<strong>节点配置</strong><br>
+  注意：搭建节点如果不能上网，记得要放行节点端口。  <br>
+</p>
+<p><img src="images/dj34.png" width="500" height="890" alt=""/></p>
+<p>节点配置及功能方面，请看 <a href="https://youtu.be/BzjNZFCvBcY" target="_blank">视频教程</a></p>
+<p>6.2<strong>、客户端</strong><br>
+  Windows（v2rayN）：<a href="https://github.com/2dust/v2rayN" target="_blank">https://github.com/2dust/v2rayN</a><br>
+  Android（v2rayNG）：<a href="https://github.com/2dust/v2rayNG" target="_blank">https://github.com/2dust/v2rayNG</a><br>
+  IOS（shadowrocket）：<a href="https://apps.apple.com/app/shadowrocket/id932747118" target="_blank">https://apps.apple.com/app/shadowrocket/id932747118</a><br>
+</p>
+<p><strong>七 、IP纯净度检测</strong></p>
+<p><strong>连接节点IP，保证whoer检测100%</strong><br>
+  打<a href="https://whoer.net/zh" target="_blank">fwhoer.net</a>,
+  检查伪装度和时区<br>
+  打开<a href="https://bgp.he.net" target="_blank">bgp.he.net</a>，再次检查是否为原生IP。<br>
+  首先打开bgp.he.net ，自己的服务器，肯定都知道机房位置的，所以我们要做的就是看下这个IP的
+  whois信息中的地区/国家与你机房的位置是否一致。<br>
+  或者打开<a href="https://ipinfo.io/" target="_blank">ipinfo.io</a>，检测IP的类型以及是否原生。。</p>
+<p><strong><span>八、检测端口是否被封</span></strong><br>
+端口被封的原因是多方面的，目前并没有哪一种节点可以保证不被封，本期讲的这三种方式也不例外，所以如果你的节点突然无法使用了，可以用以下方式进行排查。<br>
+打开 <a href="https://ping.pe/" target="_blank">ping.pe</a><br>
+输入 IP 检测 ping 可用<br>
+输入 IP:Port 检查端口是否可用<br>
+主要是看最后几个是否为绿色<br>
+</p>
+<p>&nbsp;</p>
+<p></p>
+	<script type="text/javascript" src="../css/copytext.js"></script>
+<!--内容区域结束-->
+</div>
+
+</div>
+	
+<div class="video_list">
+<!--相关视频开始-->
+
+
+<!--相关视频结束-->
+</div>
+
+</div>
+
+<footer class="footer">
+<div class="footer_nav">
+Copyright &copy; 2025 科技小露 
+<a href="../index.html">首页</a><a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube频道</a><a href="../contact.html">联系我们</a> </div>
+<div class="tips">
+我是小露，我的博客主要分享科技和软件教学视频，偶尔也会分享生活vlog，谢谢你的关注！<br>
+*本站部分内容来自网络，如果您是内容或软件的作者，不希望您的内容在本站展示，请联系我们，谢谢！
+</div>
+</footer>
+
+</body>
+</html>
