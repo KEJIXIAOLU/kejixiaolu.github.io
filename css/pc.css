@@ -21,7 +21,7 @@ body {
 .container .left .item_list{width:23%; min-width:300px; height:100%; padding:0px; margin:1%; border-bottom:1px solid #eee; transition:all 0.5s; float:left; border-radius:10px; overflow:hidden;box-shadow: 0 0 20px rgba(0,0,0,.1);}
 .container .left .item_list:hover{box-shadow: 0 0 20px rgba(0,0,0,.5);}
 .container .left .item_list img{width:100%; height:100%; float:left;}
-.container .left .item_list h2{padding:12px 20px; font-weight:bold; color:#333;float:left;}
+.container .left .item_list h2{padding:12px 20px; font-weight:bold; color:#333;float:left; height: 3em;}
 .container .left .item_list a{color:#333;}
 
 .container .left .layout_content a{color:#007be3;text-decoration: underline;}
