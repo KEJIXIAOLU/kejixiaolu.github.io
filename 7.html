@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>国内如何看Netflix/奈飞/网飞？看奈飞怎么最省钱？奈飞到底是什么？如何注册奈飞账号？</title>
+<link href="css/global.css" rel="stylesheet" type="text/css" />
+<link href="css/article.css" rel="stylesheet" type="text/css" />
+<link href="css/article_app.css" rel="stylesheet" type="text/css" media="screen and (max-width:999px)" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D871VH8G9E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D871VH8G9E');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1722699328777442"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+<header class="header">
+<div class="inner">
+<div class="logo"><a href="index.html">科技小露</a></div>
+<div class="nav">
+<a href="jichang.html">机场评测</a>
+<a href="tiktok.html">干货分享</a>
+<a href="djvps.html">搭建</a>
+<a href="wangzhan.html">网站</a>
+<a href="ruanjian.html">软件</a>
+<a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube</a>
+</div>
+</div>
+</header>
+
+<div class="container">
+<div class="left">
+<h1><span dir="auto">2025新版 </span>Mihomo Party 教程，mihomo party 配置 | 分流 | 规则覆写</h1>
+<div class="video">
+<!--内容区域开始-->
+
+<p class="date"> 🕓2025年6月12日</p>
+<p>Mihomo Party 视频使用教程：▶</p>
+
+<p>Mihomo Party 配置覆写教程：▶</p>
+<p>Mihomo Party <a href="https://github.com/mihomo-party-org/mihomo-party/releases/latest" target="_blank">下载地址&gt;&gt; </a></p>
+<p>Mihomo Party <a href="https://github.com/KEJIXIAOLU/gongxiang/releases/download/Mihomo/config.yaml">配置文件下载&gt;&gt; </a> <br>
+  <a href="https://github.cmliussss.net/https://github.com/KEJIXIAOLU/gongxiang/releases/download/Mihomo/config.yaml">备用下载地址&gt;&gt;</a></p>
+<p><strong>配置覆写</strong><br>
+  覆写功能用于对订阅配置进行自定义修改，使用覆写功能修改订阅配置可以使得修改在更新订阅后依然生效。<br>
+  <a href="https://mihomo.party/docs/guide/override" target="_blank">覆写规则方式&gt;&gt;</a></p>
+<p># 直接覆盖整个规则 </p>
+	
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton1">复制</span>
+  <span class="copy-content" id="copyText1">
+    rules:
+    - DOMAIN,baidu.com,DIRECT
+  </span>
+</p>
+	
+
+<p># 将规则插入到原规则前面 </p>
+	
+<p class="copy_layout">
+<span class="copy-text" id="copyButton2">复制</span>
+<span class="copy-content" id="copyText2">
++rules:
+	  - DOMAIN,baidu.com,DIRECT
+</span>
+</p>
+	
+
+	<p># 在原规则后面追加规则</p>
+	
+<p class="copy_layout">
+<span class="copy-text" id="copyButton3">复制</span>
+<span class="copy-content" id="copyText3">
+rules+:
+  - DOMAIN,baidu.com,DIRECT
+</span>
+</p>
+	
+	
+	<p><strong>规则和策略组/代理组：</strong></p>
+	<p><strong>分流规则类型：</strong><br>
+	  DOMAIN  #完整域名匹配，例如：<br>
+
+<p class="copy_layout">
+<span class="copy-text" id="copyButton4">复制</span>
+<span class="copy-content" id="copyText4">
+ DOMAIN,www.google.com,🚀 节点选择
+</span>
+</p>
+	
+	
+	<p>	  DOMAIN-SUFFIX  #域名后缀匹配，
+	  例如：<br>
+		
+<p class="copy_layout">
+<span class="copy-text" id="copyButton5">复制</span>
+<span class="copy-content" id="copyText5">
+ DOMAIN-SUFFIX,google.com,🚀 节点选择
+</span>
+</p>		
+		
+	 
+	<p> DOMAIN-KEYWORD  #域名关键字匹配 ，例如：<br>
+		
+<p class="copy_layout">
+<span class="copy-text" id="copyButton6">复制</span>
+<span class="copy-content" id="copyText6">
+ DOMAIN-KEYWORD,google,🚀 节点选择
+</span>
+</p>
+	
+
+	<p><strong>策略组/代理组/节点组：</strong><br>
+	  DIRECT  #直连<br>
+	  REJECT  #拒绝<br>
+	  PASS  #跳过此规则</p>
+	<p>select  #手动选择节点<br>
+	  url-test  #延迟优选，自动选择低延迟节点<br>
+	  fallback  #故障转移，自动选择该组节点，从第一个节点开始检查是否可用，直到选择可用节点。<br>
+	  load-balance   #负载均衡，能充分利用多个代理的带宽，不健康的代理会被跳过<br>
+	  relay  #链式代理，可通过多个节点代理转发到达目的地，例如：A节点&gt;B节点&gt;C节点</p>
+	<p>&nbsp;</p>
+	<p>敬请关注！下期分享：多个机场、自建节点整合方法</p>
+	<p>&nbsp;</p>
+<p><!--内容区域结束--></p>
+</div>
+</div>
+	
+<div class="video_list">
+<!--相关视频开始-->
+
+
+<!--相关视频结束-->
+</div>
+
+</div>
+
+<footer class="footer">
+<div class="footer_nav">
+Copyright &copy; 2025 科技小露 
+<a href="index.html">首页</a><a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube频道</a><a href="contact.html">联系我们</a> </div>
+<div class="tips">
+我是小露，我的博客主要分享科技和软件教学视频，偶尔也会分享生活vlog，谢谢你的关注！<br>
+*本站部分内容来自网络，如果您是内容或软件的作者，不希望您的内容在本站展示，请联系我们，谢谢！
+</div>
+</footer>
+
+</body>
+</html>
