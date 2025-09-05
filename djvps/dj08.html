@@ -39,7 +39,7 @@
 <div class="container">
 <div class="left">
 <h1>3X-ui 面板搭建！轻松搭建专属VPS节点<br>
-  【开启CDN+15年证书申请】<br>
+  【开启CDN+自动证书申请】<br>
 </h1>
 <div class="video">
   <!--内容区域开始-->
@@ -69,19 +69,19 @@ Xray面板的这些功能使得它成为搭建和管理代理服务器的理想�
   <strong>二、准备工作</strong><br>
   1、域名一个，并托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank">Cloudflare </a><br>
   推荐在 <a href="https://www.namesilo.com/?rid=fe81174he" target="_blank">Namesilo </a> 进行购买（新用户1美元优惠券：kejixiaolu），因为他的 WHOIS 隐私 是免费的，可以适当的进行一下隐私保护，而且域名还都挺便宜的。（域名可以在 <a href="https://www.namesilo.com/?rid=fe81174he" target="_blank">Namesilo </a>解析，也可以将域名托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> Cloudflare</a><a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> </a>，解析更快。）</p>
-<p><strong>✰</strong>如果要开启CDN，和申请15证书，必须将域名托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> Cloudflare</a><a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> </a>。</p>
-<p> 搭建前，先检测服务器IP是否被封，确认IP可用。<br>
-已经解析的域名，Win+R 输入 CMD 回车：键入ping 空格输入你的域名，检查一下是否可以 ping 通。</p>
+<p><strong>✰</strong>如果要开启 CDN 和申请证书，须将域名托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> Cloudflare</a><a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> </a>。</p>
 <p> 2、一台境外 VPS 主流系统。
-  例如：Debian 12+ / Ubuntu 20.04+ / CentOS 8+<br>
+  例如：Debian 12+ / Ubuntu 22.04+ / CentOS 8+<br>
   六六云VPS注册网址：<a href="https://kjxl.cc/666clouds" target="_blank">https://kjxl.cc/666clouds</a>（双ISP，支持tiktok）<br>
   全站九折优惠：XL666<br>
   年付七折优惠：year30off</p>
-<p> Vultr 注册网址：<a href="https://www.vultr.com/?ref=9735525" target="_blank">https://kjxl.cc/vultr </a>（按时计费，最低6$/月。）<br>
-</p>
+<p> Vultr 注册网址：<a href="https://www.vultr.com/?ref=9735525" target="_blank">https://kjxl.cc/vultr </a>（按时计费，最低6$/月。）</p>
+<p>搭建前，先检测服务器IP是否被封，确认IP可用。<br>
+已经解析的域名，Win+R 输入 CMD 回车：键入ping 空格输入你的域名，检查一下是否可以 ping 通。</p>
 <p> 3、下载并安装 FinalShell SSH 工具<br>
   Windows、macOS、Linux 版下载地址：<a href="https://www.hostbuf.com/t/988.html" target="_blank">点击下载</a></p>
-<p><strong>三、搭建 3X-UI 面板</strong></p>
+<p><strong>三、搭建 3X-UI 面板</strong><br>
+</p>
 <p><strong>1、安装系统 </strong> </p>
 <p>下面环境的安装方式，大家根据自己的系统选择命令安装就好了。<br>
   Debian/Ubuntu系统执行以下命令：<br>
@@ -123,8 +123,8 @@ apt update -y &amp;&amp; apt install -y curl &amp;&amp; apt install -y socat
 <p><img src="images/dj39.png" width="500" height="600" alt=""/><br>
 再次登录面板：域名:端口/路径</p>
 <p>PS：若你在正确完成了上述步骤之后，你没有安装证书的情况下，去用IP+端口号/路径的方式却不能访问面板，那请检查一下是不是你的浏览器自动默认开启了https模式，需要手动调整一下改成http方式，把“s”去掉，即可访问成功。</p>
-<p><strong>五、开启CDN和申请15年证书</strong></p>
-<p>如果要开启 CDN 和申请15年证书，必须将域名托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> Cloudflare</a><a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> </a>。</p>
+<p><strong>五、开启CDN和申请证书</strong></p>
+<p>如果要开启 CDN 和自动申请证书，须将域名托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> Cloudflare</a><a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> </a>。</p>
 <p>详细看视频：点此观看视频</p>
 <p><strong>六、关闭防火墙/放行端口</strong></p>
 <p>关闭防火墙：<br>
