@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>域名注册与 Cloudflare 托管完整指南（新手必看）</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css" />
+<link href="../css/article.css" rel="stylesheet" type="text/css" />
+<link href="../css/article_app.css" rel="stylesheet" type="text/css" media="screen and (max-width:999px)" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D871VH8G9E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D871VH8G9E');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1722699328777442"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+<header class="header">
+<div class="inner">
+<!--<div class="logo">科技小露</div>-->
+<div class="nav">
+<a href="https://kejixiaolu.github.io/">科技小露</a>
+<a href="../jichang.html">机场评测</a>
+<a href="../tiktok.html">干货分享</a>
+<a href="../djvps.html">搭建</a>
+<a href="../wangzhan.html">网站</a>
+<a href="../ruanjian.html">软件</a>
+<a href="gongju.html">工具</a>
+<a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube</a>
+</div>
+</div>
+</header>
+
+<div class="container">
+<div class="left">
+<h1>为什么搭建网站一定要有域名？最省心的域名注册 + Cloudflare 托管全教程</h1>
+<div class="video">
+<!--内容区域开始-->
+
+<p class="date"> 🕓2026年01月01日</p>
+<p>视频教程：▶<a href="https://youtu.be/xJB7YOnJJdM?si=uLKw-tEI4gj8v5OZ" target="_blank">https://youtu.be/xJB7YOnJJdM?si=uLKw-tEI4gj8v5OZ</a></p>
+<p>在搭建网站之前，<strong>域名</strong> 是绕不开的一步。很多新手都会问：</p>
+<p>👉 <strong>搭建网站到底要不要域名？</strong></p>
+<p>答案是：非常有必要，而且区别很大。</p>
+<p>本文将从「为什么需要域名」讲起，手把手带你完成：</p>
+<ol>
+  <li>域名注册</li>
+  <li>域名购买</li>
+  <li>DNS 解析</li>
+  <li>域名托管到 Cloudflare</li>
+</ol>
+<p><strong>一、为什么搭建网站一定要有域名？</strong></p>
+<p><img src="images/dj43.png" width="600" height="450" alt=""/></p>
+<p><strong>总结一句话：</strong></p>
+<p>域名 = 安全 + 专业 + 省心</p>
+<p><strong>二、域名注册平台推荐</strong></p>
+<p>这里推荐一个大佬常用的域名注册平台：</p>
+<p>推荐在 <a href="https://www.namesilo.com/?rid=fe81174he" target="_blank">Namesilo </a> 进行购买（新用户1美元优惠券：kejixiaolu），因为他的 WHOIS 隐私 是免费的，可以适当的进行一下隐私保护，而且域名还都挺便宜的。</p>
+<ol>
+  <li>💰 域名价格便宜</li>
+  <li>🔒 WHOIS 隐私保护免费</li>
+  <li>🧑‍💻 非常适合个人网站 / 新手使用</li>
+</ol>
+<p>下面开始完整注册与购买流程。</p>
+<p>域名解析完整版教程：<a href="https://youtu.be/xJB7YOnJJdM?si=uLKw-tEI4gj8v5OZ" target="_blank">点此进入&gt;&gt;</a></p>
+<p><strong>三、注册域名账号</strong></p>
+<p><strong>1、创建账号</strong></p>
+<p>打开域名注册网站 <a href="https://www.namesilo.com/?rid=fe81174he" target="_blank">Namesilo </a>，点击用户头像 → 注册账号</p>
+<p><strong>2、填写注册信息</strong></p>
+<ol>
+  <li>用户名：登录用，简单好记即可</li>
+  <li>邮箱：必须能接收验证码，建议使用国外邮箱</li>
+  <li>密码：8 位以上，包含大小写字母 + 数字 + 特殊符号</li>
+  <li>完成人机验证 → 创建账户</li>
+</ol>
+<p>注册成功后会自动进入个人主页。</p>
+<p>⚠️ 如果提示“用户名已被使用”，但刷新后已登录成功，直接继续即可。</p>
+<p><strong>四、购买域名</strong></p>
+<p><img src="images/dj45.png" width="800" height="439" alt=""/></p>
+<p><strong>1、搜索域名</strong></p>
+<p>点击「域名首页」，输入你想要的域名，点击搜索</p>
+<p><strong>2、选择域名后缀</strong></p>
+<ol>
+  <li>.com：最贵，不推荐新手</li>
+  <li>.top / .sbs：便宜实用，完全够用</li>
+</ol>
+<p>👉 如果只是自用或搭建服务，选最便宜的就行</p>
+<p>选择好后 → 加入购物车</p>
+<p><strong>3、结算与支付</strong></p>
+<ol>
+  <li>域名时长：1 年</li>
+  <li>价格：约 1.79 美元</li>
+  <li>其他增值服务可全部不选</li>
+</ol>
+<p>💡 <strong>新用户优惠码</strong></p>
+<p><img src="images/dj46.png" width="800" height="467" alt=""/></p>
+<p>如果你是新注册用户，可以尝试输入：kejixiaolu，可减 <strong>1 美元</strong>，能省就省。</p>
+<p>支付方式支持：</p>
+<ol>
+  <li>支付宝（SEE MORE 里可以找到）</li>
+</ol>
+<p>支付完成后，账户中就会显示已有域名。</p>
+<p><strong>五、填写域名个人信息（WHOIS）</strong></p>
+<p>首次购买域名后，需要填写个人资料：</p>
+<ol>
+  <li><strong>姓名：</strong>随便填英文即可</li>
+  <li><strong>国家：</strong>China</li>
+  <li><strong>城市 / 地址：</strong>随意填写，不验证</li>
+  <li><strong>邮编：</strong>
+    <ol>
+      <li>国内：6 位</li>
+      <li>国外：5 位</li>
+    </ol>
+    </li>
+  <li><strong>电话：</strong>可随便填 11 位数字</li>
+  <li>WHOIS 隐私邮箱：海外邮箱都可</li>
+</ol>
+<p>填好后点击保存。</p>
+<p><strong>六、在域名商处解析域名（原始方式）</strong></p>
+<p><strong>1、进入 DNS 页面</strong></p>
+<p>点击域名旁边的 <strong>蓝色圆球</strong>，进入 DNS 管理页面<br>
+  </p>
+<p><strong>2、邮箱验证（必须）</strong></p>
+<ol>
+  <li>点击「立即验证」</li>
+  <li>打开邮箱 → 点击验证链接<br>
+  </li>
+</ol>
+<p><strong>3、添加 DNS 记录</strong></p>
+<p><img src="images/dj47.png" width="800" height="472" alt=""/></p>
+<p>先将系统自动生成的记录删除，再添加记录：</p>
+<ol>
+  <li>类型：A</li>
+  <li>主机名：自定义（简短好记）</li>
+  <li>IP 地址：你的服务器 IP</li>
+</ol>
+<p>⚠️ 在域名商解析，一般需要<strong> 15 分钟左右生效</strong></p>
+<p><strong>七、为什么强烈建议托管到 Cloudflare？</strong></p>
+<p>相比直接在域名商解析：</p>
+<ol>
+  <li>🚀 解析几乎立即生效</li>
+  <li>🧠 操作简单，界面友好</li>
+  <li>🛡 自动防护大量常见攻击</li>
+  <li>⚙ 后期搭建非常省事</li>
+</ol>
+<p><strong>一句话总结：</strong></p>
+<p>域名买完，第一件事就是丢进 <strong>Cloudflare</strong></p>
+<p><strong>八、将域名托管到 Cloudflare</strong><br>
+  <strong>1、添加域名</strong></p>
+<ol>
+  <li>注册并登录 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> Cloudflare</a><a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> </a></li>
+  <li>点击「加入域」</li>
+  <li>输入你刚购买的域名</li>
+  <li>选择 免费计划，确认并继续</li>
+</ol>
+<p><strong>2、修改名称服务器</strong></p>
+<p><strong><img src="images/dj48.png" width="800" height="485" alt=""/></strong></p>
+<p>回到域名注册商后台：</p>
+<ol>
+  <li>打开域名 DNS 页面</li>
+  <li>点击「快速设置」→ 编辑名称服务器</li>
+  <li>将原有 NS 替换为 Cloudflare 提供的 NS</li>
+  <li>删除多余的第三个 DNS，保存</li>
+</ol>
+<p><strong>3、等待生效</strong></p>
+<ol>
+  <li>Cloudflare 会自动检查名称服务器</li>
+  <li>实际等待时间：10 分钟左右</li>
+  <li>状态显示「活动」即表示托管成功</li>
+</ol>
+<p><strong>九、在 Cloudflare 中解析域名（推荐方式）</strong></p>
+<p>1、进入 Cloudflare → 选择域名</p>
+<p>2、点击 DNS → 记录 → 添加记录</p>
+<p><img src="images/dj49.png" width="800" height="403" alt=""/></p>
+<blockquote>
+  <p>填写：</p>
+  </blockquote>
+<ol>
+  <li>类型：A</li>
+  <li>名称：随意填写（如 CS）</li>
+  <li>IP 地址：服务器 IP</li>
+  <li>小云朵：关闭（直连）</li>
+</ol>
+<p>保存后，<strong>立即生效。</strong></p>
+<p><img src="images/dj50.png" width="600" height="429" alt=""/></p>
+<p>你可以直接 ping 域名 测试。</p>
+<p><strong>十、总结</strong></p>
+<ol>
+  <li>域名是网站的基础，<strong>一定要有</strong></li>
+  <li>注册域名并不复杂，新手也能轻松完成</li>
+  <li><strong>Cloudflare 托管 = 更快 + 更稳 + 更省心</strong></li>
+</ol>
+<p>⚠️ 提醒一句：</p>
+<blockquote>
+  <p><strong>👉 域名只是搭建的第一步</strong></p>
+</blockquote>
+<p>后面还有服务器、环境、协议、配置等关键步骤。</p>
+<p>下一篇，我们就正式进入 <strong>实操搭建阶段</strong>，把所有容易踩坑的地方一次性讲清楚。</p>
+<p>我们下篇见 👋</p>
+<p>📎 相关教程：  - 3X-UI搭建完整教程：<a href="https://youtu.be/2oAyF4BHAsY?si=Y53BIw0jzOm_4uSN" target="_blank">https://youtu.be/2oAyF4BHAsY?si=Y53BIw0jzOm_4uSN</a></p>
+<p></p>
+	<script type="text/javascript" src="../css/copytext.js"></script>
+<!--内容区域结束-->
+</div>
+
+</div>
+	
+<div class="video_list">
+<!--相关视频开始-->
+
+
+<!--相关视频结束-->
+</div>
+
+</div>
+
+<footer class="footer">
+<div class="footer_nav">
+Copyright &copy; 2025 科技小露 
+<a href="../index.html">首页</a><a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube频道</a><a href="../contact.html">联系我们</a> </div>
+<div class="tips">
+我是小露，我的博客主要分享科技和软件教学视频，偶尔也会分享生活vlog，谢谢你的关注！<br>
+*本站部分内容来自网络，如果您是内容或软件的作者，不希望您的内容在本站展示，请联系我们，谢谢！
+</div>
+</footer>
+
+</body>
+</html>
