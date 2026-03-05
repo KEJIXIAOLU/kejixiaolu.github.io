@@ -38,14 +38,14 @@
 
 <div class="container">
 <div class="left">
-<h1>3X-UI 从零搭建教程（Debian 12）<br>
-  为什么 ufw 放行无效？原来系统根本没装！<br>
+<h1>3X-UI 从零搭建教程 (第一期) <br>
+  为什么 ufw 放行无效？Debian 12 + Xray 小白保姆级教学<br>
 </h1>
 <div class="video">
   <!--内容区域开始-->
   
   <p class="date"> 🕓2026年03月03日</p>
-<p>视频教程：▶</p>
+<p>视频教程：▶<a href="https://youtu.be/mzLR9ebXeNY?si=SXw_vof4COhqo4Aq" target="_blank">https://youtu.be/mzLR9ebXeNY?si=SXw_vof4COhqo4Aq</a></p>
 <p>本文带你在 3X-UI 面板上完成一次完整部署。<br>
   底层基于 Xray，系统推荐 Debian 12。</p>
 <p>本教程目标：</p>
@@ -74,11 +74,19 @@
     apt update &amp;&amp; apt upgrade -y</span>
 </p>
   <p>等它跑完。</p>
+  <p>安装 curl (如果没有的话)：</p>
+  
+<p class="copy_layout">
+	 <span class="copy-text" id="copyButton2">复制</span>
+    <span class="copy-content" id="copyText2">
+      apt install curl -y</span>
+</p>
+	
   <p><strong>二、一键安装 3X-UI</strong><br>
     执行官方安装脚本：</p>
  <p class="copy_layout">
-	 <span class="copy-text" id="copyButton2">复制</span>
-    <span class="copy-content" id="copyText2">
+	 <span class="copy-text" id="copyButton3">复制</span>
+    <span class="copy-content" id="copyText3">
       bash &lt;(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)</span>
 </p>
 	
@@ -90,21 +98,21 @@
 </ol>
 <p>访问：</p>
 <p class="copy_layout">
-	<span class="copy-text" id="copyButton3">复制</span>
-	<span class="copy-content" id="copyText3"> http://服务器IP:面板端口</span>
+	<span class="copy-text" id="copyButton4">复制</span>
+	<span class="copy-content" id="copyText4"> http://服务器IP:面板端口</span>
 </p>
 <p>如果能打开，说明基础安装成功。</p>
 <p><strong>三、面板打不开？先别急着用 ufw</strong></p>
 <p>很多人这一步会失败。</p>
 <p>然后开始执行：</p>
 <p class="copy_layout">
-	<span class="copy-text" id="copyButton4">复制</span> 
-	<span class="copy-content" id="copyText4"> ufw allow 端口</span>
+	<span class="copy-text" id="copyButton5">复制</span> 
+	<span class="copy-content" id="copyText5"> ufw allow 端口</span>
 </p>
 <p><strong></strong>结果报错：</p>
 <p class="copy_layout">
-	<span class="copy-text" id="copyButton5">复制</span> 
-	<span class="copy-content" id="copyText5"> ufw: command not found</span>
+	<span class="copy-text" id="copyButton6">复制</span> 
+	<span class="copy-content" id="copyText6"> ufw: command not found</span>
 </p>
 <p>原因很简单：<br>
   系统根本没装 ufw。<br>
@@ -114,8 +122,8 @@
 <p><strong>1、 先确认端口是否监听</strong><br>
 </p>
 <p class="copy_layout">
-  <span class="copy-text" id="copyButton6">复制</span>
-  <span class="copy-content" id="copyText6"> ss -tulnp</span>
+  <span class="copy-text" id="copyButton7">复制</span>
+  <span class="copy-content" id="copyText7"> ss -tulnp</span>
 </p>
 <p data-start="1024" data-end="1035">示例：如果要查看某个端口，如 80 端口有没有监听？<br>
 输入代码：ss -tulnp | grep :80 </p>
@@ -124,8 +132,8 @@
   👉 是程序没启动</p>
 <p data-start="872" data-end="878"><strong>2、检查系统是否有 ufw</strong></p>
 <p class="copy_layout">
-	<span class="copy-text" id="copyButton7">复制</span> 
-	<span class="copy-content" id="copyText7"> which ufw</span>
+	<span class="copy-text" id="copyButton8">复制</span> 
+	<span class="copy-content" id="copyText8"> which ufw</span>
 </p>
 <ul>
   <li data-start="1111" data-end="1127">    </li>
@@ -141,14 +149,14 @@
 <p data-start="1024" data-end="1035"><br>
   <strong>3、没有 ufw，用 iptables</strong></p>
 <p class="copy_layout">
-	<span class="copy-text" id="copyButton8">复制</span> 
-	<span class="copy-content" id="copyText8"> iptables -I INPUT -p tcp --dport 端口 -j ACCEPT<br>
+	<span class="copy-text" id="copyButton9">复制</span> 
+	<span class="copy-content" id="copyText9"> iptables -I INPUT -p tcp --dport 端口 -j ACCEPT<br>
 	</span>
 </p>
 <p>保存规则：</p>
 <p class="copy_layout">
-	<span class="copy-text" id="copyButton9">复制</span>
-	<span class="copy-content" id="copyText9"> apt install -y iptables-persistent<br>
+	<span class="copy-text" id="copyButton10">复制</span>
+	<span class="copy-content" id="copyText10"> apt install -y iptables-persistent<br>
   netfilter-persistent save</span>
 </p>
 <p><strong>4、最容易被忽略的：云安全组</strong></p>
