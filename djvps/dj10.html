@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>3X-UI第二期：VLESS + Reality 稳定高级玩法 </title>
+<link href="../css/global.css" rel="stylesheet" type="text/css" />
+<link href="../css/article.css" rel="stylesheet" type="text/css" />
+<link href="../css/article_app.css" rel="stylesheet" type="text/css" media="screen and (max-width:999px)" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D871VH8G9E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D871VH8G9E');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1722699328777442"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+<header class="header">
+<div class="inner">
+<!--<div class="logo">科技小露</div>-->
+<div class="nav">
+<a href="https://kejixiaolu.github.io/">科技小露</a>
+<a href="../jichang.html">机场评测</a>
+<a href="../tiktok.html">干货分享</a>
+<a href="../djvps.html">搭建</a>
+<a href="../wangzhan.html">网站</a>
+<a href="../ruanjian.html">软件</a>
+<a href="gongju.html">工具</a>
+<a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube</a>
+</div>
+</div>
+</header>
+
+<div class="container">
+<div class="left">
+<h1>3X-UI 第二期：<br>
+  VLESS + Reality 稳定高级玩法（无需域名和 SSL）<br>
+</h1>
+<div class="video">
+  <!--内容区域开始-->
+  
+  <p class="date"> 🕓2026年03月16日</p>
+<p>视频教程：▶</p>
+<p>在上一篇教程中，我们已经完成了<strong> 3X-UI 面板的基础部署</strong>，并成功创建了一个简单的节点：</p>
+<p><strong>VLESS + TCP（无加密）</strong></p>
+<p>这种配置主要用于测试服务器环境是否正常，但如果用于长期使用，其隐蔽性和安全性都比较有限。</p>
+<p>因此在这一篇教程中，我们将把节点升级到目前更加稳定和隐蔽的方案：</p>
+<p><strong>VLESS + TCP + XTLS + Reality</strong></p>
+<p>这种方案具有几个明显优势：</p>
+<ol>
+  <li>不需要域名</li>
+  <li>不需要申请 SSL 证书</li>
+  <li>抗封锁能力更强</li>
+  <li>延迟更低</li>
+  <li>配置相对简单</li>
+</ol>
+<p>底层依然基于<br>
+  Xray<br>
+  只是使用了更先进的传输机制。</p>
+<p><strong>一、Reality 是什么</strong></p>
+<p>很多教程都会直接讲如何配置 Reality，但很少解释它的原理。</p>
+<p>简单来说：</p>
+<p>Reality 是一种 TLS 流量伪装技术。</p>
+<p>它的核心思想是：</p>
+<p>让你的网络流量在外部看起来像是在访问一个真实网站。</p>
+<p>例如：</p>
+	
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton1">复制</span>
+  <span class="copy-content" id="copyText1">
+    https://www.microsoft.com</span>
+</p>
+  <p>在网络层面上，Reality 的握手过程看起来就像是一次正常的 HTTPS 连接。</p>
+  <p>但实际上：</p>
+  <ol>
+    <li>服务器并不会真的访问这个网站</li>
+    <li>Reality 只是借用该网站的 TLS 特征完成加密通信</li>
+  </ol>
+  <p>这种方式可以让流量更加自然，从而提高隐蔽性。</p>
+  <p><strong>二、在 3X-UI 中创建 Reality 节点</strong></p>
+  <p>首先登录 3X-UI 面板。</p>
+  <p>进入：</p>
+  <p>入站 → 新建入站</p>
+  <p><strong>1、基本设置</strong></p>
+  <p>配置如下：</p>
+  <p><img src="images/dj51.png" width="350" height="623" alt=""/></p>
+  <p>为什么推荐使用 443 端口？</p>
+  <p>因为 443 是 HTTPS 的标准端口，大部分网络环境都会允许该端口的通信。</p>
+  <p><strong>2、安全设置</strong></p>
+  <p><img src="images/dj52.png" width="350" height="610" alt=""/></p>
+  <p>ServerName</p>
+  <p>建议填写真实存在的大型网站，例如：</p>
+	
+  <p class="copy_layout">
+	  <span class="copy-text" id="copyButton2">复制</span>
+    <span class="copy-content" id="copyText2">
+   www.microsoft.com</span>
+	</p>
+	
+  <p class="copy_layout">
+	  <span class="copy-text" id="copyButton3">复制</span>
+    <span class="copy-content" id="copyText3">
+	  www.cloudflare.com</span>
+	</p>
+	
+	
+  <p class="copy_layout">
+	  <span class="copy-text" id="copyButton4">复制</span>
+    <span class="copy-content" id="copyText4">
+		www.apple.com</span> </p>
+	
+	
+  <p>这些网站的 TLS 特征更加稳定。</p>
+  <p><strong>3、传输设置</strong></p>
+  <p>Flow 设置为：</p>
+  <p class="copy_layout">
+	  <span class="copy-text" id="copyButton5">复制</span>
+    <span class="copy-content" id="copyText5">
+     xtls-rprx-vision</span>  </p>
+	
+<p>这是 Reality 推荐的流控模式，能够获得更好的性能表现。</p>
+<p><img src="images/dj53.png" width="350" height="366" alt=""/></p>
+<p>&nbsp;</p>
+<p><strong>三、客户端配置示例（Clash）</strong></p>
+<p>官方客户端配置：<a href="https://raw.githubusercontent.com/MetaCubeX/mihomo/refs/heads/Meta/docs/config.yaml" target="_blank">点此进入&gt;&gt;</a></p>
+<p>如果你使用 Clash 客户端，可以使用类似如下的节点配置：</p>
+<p class="copy_layout"><span class="copy-text" id="copyButton6">复制</span>
+  <span class="copy-content" id="copyText6"> proxies:<br>
+&nbsp;- name: "vless-reality-vision"<br>
+   &nbsp;&nbsp;&nbsp;type: vless
+   <br>
+   &nbsp;&nbsp;&nbsp;server: 你的服务器IP
+   <br>
+   &nbsp;&nbsp;&nbsp;port: 443
+   <br>
+   &nbsp;&nbsp;&nbsp;uuid: 你的UUID
+   <br>
+   &nbsp;&nbsp;&nbsp;network: tcp
+   <br>
+   &nbsp;&nbsp;&nbsp;tls: true<br>
+&nbsp;&nbsp;&nbsp;udp: true<br>
+&nbsp;&nbsp;&nbsp;flow: xtls-rprx-vision<br>
+&nbsp;&nbsp;&nbsp;servername: www.microsoft.com  # REALITY servername<br>
+&nbsp;&nbsp;&nbsp;reality-opts:
+      <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public-key: 你的PublicKey
+      <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short-id: 你的ShortID
+      <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; support-x25519mlkem768: false # 如果服务端支持可手动设置为true
+      <br>
+     &nbsp;&nbsp;&nbsp;client-fingerprint: chrome # cannot be empty</span></p>
+<p>需要特别注意以下几点：</p>
+<p>1、server 填写服务器 IP<br>
+  2、servername 必须与服务端 ServerName 一致<br>
+  3、public-key 必须复制服务端生成的密钥</p>
+<p>另外建议设置：</p>
+<p class="copy_layout"><span class="copy-text" id="copyButton7">复制</span> 
+  <span class="copy-content" id="copyText7"> client-fingerprint: chrome</span></p>
+<p><strong></strong>这样流量特征会更接近真实浏览器。</p>
+<p><strong>四、为什么 Reality 不需要域名和 SSL 证书？</strong></p>
+<p>传统 TLS 的连接流程是：</p>
+<p>客户端 → 服务器</p>
+<p>服务器需要：</p>
+<ol>
+  <li>提供 SSL 证书</li>
+  <li>证书必须绑定真实域名</li>
+</ol>
+<p>而 Reality 的逻辑不同。</p>
+<p>Reality 使用的是一对自生成密钥。</p>
+<p>在握手过程中：</p>
+<ol>
+  <li>客户端会模拟访问某个真实网站</li>
+  <li>Xray 在底层完成加密通信</li>
+</ol>
+<p>因此 Reality 不需要：</p>
+<ol>
+  <li>购买域名</li>
+  <li>申请 SSL 证书</li>
+</ol>
+<p>我们可以直接使用：</p>
+<p class="copy_layout"><span class="copy-text" id="copyButton8">复制</span> 
+  <span class="copy-content" id="copyText8"> 服务器IP + 443端口</span></p>
+<p>就可以建立 TLS 加密连接。</p>
+<p>这也是 Reality 最大的优势之一。</p>
+<p><strong>五、测速显示 -1 的排查方法</strong></p>
+<p>很多人在配置 Reality 时都会遇到一个问题：</p>
+<p>测速显示 -1。</p>
+<p>这通常意味着连接没有建立成功。</p>
+<p>可以按照以下顺序排查。</p>
+<p>1、检查端口监听</p>
+<p>执行：</p>
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton9">复制</span>
+  <span class="copy-content" id="copyText9"> ss -tulnp | grep 443</span>
+</p>
+<p data-start="1024" data-end="1035">如果没有看到监听信息，说明服务没有启动成功。</p>
+<p><strong>2、检查防火墙</strong></p>
+<p>如果服务器启用了防火墙，需要放行 443 端口：</p>
+<p class="copy_layout"><span class="copy-text" id="copyButton10">复制</span> 
+  <span class="copy-content" id="copyText10"> iptables -I INPUT -p tcp --dport 443 -j ACCEPT</span></p>
+<ul>
+  <li data-start="1111" data-end="1127"><strong>3、 检查云服务器安全组</strong></li>
+  <li>很多用户会忽略这一点。</li>
+  <li>必须在云平台安全组中放行：</li>
+</ul>
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton11">复制</span> 
+  <span class="copy-content" id="copyText11"> TCP 443<br>
+	</span>
+</p>
+<p>否则外部无法访问服务器。</p>
+<p><strong>4、检查服务器时间</strong></p>
+<p>Reality 对时间同步要求比较严格。</p>
+<p>执行：</p>
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton12">复制</span>
+  <span class="copy-content" id="copyText12"> timedatectl</span>
+</p>
+<p>如果服务器时间和本地时间差距过大，也可能导致握手失败。</p>
+<p><strong>六、Reality 与第一期配置的区别</strong></p>
+<p>我们简单对比一下两种配置。</p>
+<p><img src="images/dj54.png" width="600" height="302" alt=""/></p>
+<p>因此只要 Reality 能正常连接，建议优先使用 Reality。</p>
+<p><strong>七、常见问题 FAQ</strong></p>
+<p>  <strong>Q1：没有域名真的安全吗？</strong><br>
+  可以。<br>
+  Reality 并不依赖你拥有域名，它只是借用公开网站的 TLS 特征。</p>
+<p><strong>Q2：ServerName 可以随便填写吗？</strong><br>
+  不可以。</p>
+<p> 必须填写真实存在的网站，例如：<br>
+  www.microsoft.com<br>
+  www.apple.com<br>
+  www.cloudflare.com</p>
+<p><strong>Q3：为什么连接后立即断开？</strong></p>
+<p>最常见原因有三个：</p>
+<ol>
+  <li>Public Key 填写错误</li>
+  <li>ShortID 填写错误</li>
+  <li>服务器时间不同步</li>
+</ol>
+<p><strong>八、总结</strong></p>
+<p>在第一期教程中，我们解决的问题是：</p>
+<p><strong>节点能否正常使用。</strong></p>
+<p>而在第二期教程中，我们完成了进一步升级：</p>
+<ol>
+  <li>更稳定</li>
+  <li>更隐蔽</li>
+  <li>更适合长期使用</li>
+</ol>
+<p>如果 Reality 已经成功运行，那么你的节点部署已经达到了一个比较成熟的水平。</p>
+<p><strong>下一篇预告</strong></p>
+<p>在第三期教程中，我们将继续升级部署方案：</p>
+<ol>
+  <li>域名绑定</li>
+  <li>SSL 证书</li>
+  <li>Nginx 反向代理</li>
+  <li>隐藏真实 IP</li>
+</ol>
+<p>这也是完整的进阶部署架构。</p>
+<p>如果你已经跑通 Reality，可以继续阅读第三期教程。
+  <script type="text/javascript" src="../css/copytext.js"></script>
+
+  <!--内容区域结束--></p>
+<p><strong>视频中用到的服务器：</strong></p>
+<p>六六云服务器：<a href="https://kjxl.cc/666clouds" target="_blank">https://kjxl.cc/666clouds</a>（双ISP，支持tiktok）<br>
+  全站九折优惠：XL666<br>
+  年付七折优惠：year30off</p>
+<p>LightNode 服务器：<a href="https://kjxl.cc/LightNode" target="_blank">https://kjxl.cc/LightNode</a>（按流量计费） <br>
+</p>
+<p> Vultr 服务器：<a href="https://www.vultr.com/?ref=9735525" target="_blank">https://kjxl.cc/vultr </a>（按时计费，最低5$/月。）</p>
+</div>
+
+</div>
+	
+<div class="video_list">
+<!--相关视频开始-->
+
+
+<!--相关视频结束-->
+</div>
+
+</div>
+
+<footer class="footer">
+<div class="footer_nav">
+Copyright &copy; 2026 科技小露 
+<a href="../index.html">首页</a><a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube频道</a><a href="../contact.html">联系我们</a> </div>
+<div class="tips">
+我是小露，我的博客主要分享科技和软件教学视频，偶尔也会分享生活vlog，谢谢你的关注！<br>
+*本站部分内容来自网络，如果您是内容或软件的作者，不希望您的内容在本站展示，请联系我们，谢谢！
+</div>
+</footer>
+
+</body>
+</html>
