@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>3X-UI第三期：域名 + SSL + Nginx 反代（进阶部署）</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css" />
+<link href="../css/article.css" rel="stylesheet" type="text/css" />
+<link href="../css/article_app.css" rel="stylesheet" type="text/css" media="screen and (max-width:999px)" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D871VH8G9E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D871VH8G9E');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1722699328777442"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+<header class="header">
+<div class="inner">
+<!--<div class="logo">科技小露</div>-->
+<div class="nav">
+<a href="https://kejixiaolu.github.io/">科技小露</a>
+<a href="../jichang.html">机场评测</a>
+<a href="../tiktok.html">干货分享</a>
+<a href="../djvps.html">搭建</a>
+<a href="../wangzhan.html">网站</a>
+<a href="../ruanjian.html">软件</a>
+<a href="gongju.html">工具</a>
+<a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube</a>
+</div>
+</div>
+</header>
+
+<div class="container">
+<div class="left">
+<h1>3X-UI 第三期：
+  域名 + HTTPS + Nginx 反向代理完整教程（隐藏面板实战）<br>
+</h1>
+<div class="video">
+  <!--内容区域开始-->
+  
+  <p class="date"> 🕓2026年04月18日</p>
+<p>视频教程：▶</p>
+<p>在前两期中，我们已经完成了：</p>
+<ol>
+  <li>✅ 3X-UI 面板基础部署</li>
+  <li>✅ VLESS + Reality 节点搭建</li>
+</ol>
+<p>这一期，我们正式进入进阶优化阶段：</p>
+<p>🎯 实现：域名访问 + HTTPS 加密 + Nginx 反向代理隐藏面板</p>
+<p><strong>一、为什么 3X-UI 一定要加域名 + HTTPS？</strong></p>
+<p>很多人会问：</p>
+<p>❓ Reality 已经很安全了，还需要域名吗？</p>
+<p>答案是：<strong>需要，而且很重要。</strong></p>
+<p>原因分析：</p>
+<p>如果你直接使用：IP + 端口（例如：1.2.3.4:54321）</p>
+<p>那么你的服务是：</p>
+<ol>
+  <li>❌ 非标准 Web 流量</li>
+  <li>❌ 没有 HTTPS 加密</li>
+  <li> ❌ 特征明显（容易被识别）</li>
+</ol>
+<p><strong>加上域名 + HTTPS 后</strong></p>
+<p>你的访问会变成：https://yourdomain.com</p>
+<p>优势：</p>
+<ol>
+  <li>✔ 看起来像正常网站流量</li>
+  <li>✔ 支持 HTTPS 加密</li>
+  <li>✔ 可以配合 Nginx 做流量转发</li>
+  <li>✔ 隐藏真实端口（关键点）</li>
+</ol>
+<p><strong>二、域名解析配置（A记录）</strong></p>
+<p>在你的域名服务商（如 Cloudflare / 阿里云 / 腾讯云）中添加：</p>
+<p><img src="images/dj58.png" width="450" height="77" alt=""/><br>
+</p>
+<p>示例：<br>
+s.lu666.top → 1.2.3.4</p>
+<p><strong>三、安装 Nginx（反代核心）</strong></p>
+<p>Nginx 是整个架构的关键组件，用于做“反向代理”。</p>
+<p><strong>安装命令</strong></p>
+<p class="copy_layout">
+<span class="copy-text" id="copyButton1">复制</span>
+  <span class="copy-content" id="copyText1">
+    apt install nginx -y</span></p>
+  <p>启动服务：</p>
+  
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton2">复制</span>
+  <span class="copy-content" id="copyText2">
+    systemctl start nginx</span>
+</p>
+	
+  <p><strong>验证是否成功</strong></p>
+  <p>浏览器访问：<br>
+    http://你的服务器IP</p>
+  <p>看到：Welcome to nginx! ，<br>
+    说明安装成功 ✅</p>
+  <p><strong>四、申请 HTTPS 证书（Let's Encrypt）</strong></p>
+  <p>推荐使用免费证书：
+    Let's Encrypt<br>
+    安装：</p>
+  <p class="copy_layout">
+	  <span class="copy-text" id="copyButton3">复制</span>
+    <span class="copy-content" id="copyText3">
+      apt install certbot python3-certbot-nginx -y</span>  </p>
+	
+<p>申请证书：</p>
+<p class="copy_layout">
+	<span class="copy-text" id="copyButton4">复制</span>
+  <span class="copy-content" id="copyText4"> certbot --nginx -d panel.yourdomain.com</span></p>
+	
+<p>按提示输入邮箱即可完成。</p>
+<p><strong>成功后效果</strong></p>
+<p>访问：<br>
+  https://panel.yourdomain.com</p>
+<p>浏览器显示 🔒 安全锁</p>
+<p><strong>五、Nginx 反向代理配置（核心步骤）</strong></p>
+<p>反代的本质：</p>
+<p>👉 用户访问域名 → Nginx → 转发到 3X-UI 面板端口</p>
+<p><strong></strong>1、创建文件:</p>
+
+<p class="copy_layout"> <span class="copy-text" id="copyButton5">复制</span>
+  <span class="copy-content" id="copyText5"> nano /etc/nginx/conf.d/3xui.conf </span></p>
+	
+<p>2、标准配置示例：</p>
+	
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton6">复制</span> 
+  <span class="copy-content" id="copyText6"> server {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;listen 80;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;server_name panel.yourdomain.com;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 301 https://$host$request_uri;
+    <br>
+    }<br>
+    <br>
+server {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;listen 443 ssl;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;server_name panel.yourdomain.com;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ssl_certificate /etc/letsencrypt/live/panel.yourdomain.com/fullchain.pem;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ssl_certificate_key /etc/letsencrypt/live/panel.yourdomain.com/privkey.pem;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;location / {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_pass http://127.0.0.1:54321;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header Host $host;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header X-Real-IP $remote_addr;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header Upgrade $http_upgrade;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header Connection "upgrade";
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+
+</span></p>
+	
+<p>3、测试</p>
+	
+<p class="copy_layout"> <span class="copy-text" id="copyButton7">复制</span>
+  <span class="copy-content" id="copyText7"> nginx -t </span></p>	
+
+<p>4、修改完成后重启</p>
+	
+<p class="copy_layout"> <span class="copy-text" id="copyButton8">复制</span>
+  <span class="copy-content" id="copyText8"> systemctl restart nginx </span></p>
+	
+<p>👉 如果你不想一集一集慢慢搭，我在会员频道内容里已经整理好：</p>
+<ol>
+  <li>✅  一键部署完整配置模板</li>
+  <li>✅  包含 Nginx + Reality + 分流规则</li>
+  <li>✅  直接复制即可</li>
+</ol>
+<p>适合想一步到位的人。</p>
+<p><strong>六、3X-UI 面板路径配置详解（避坑重点）</strong></p>
+<p><strong>方式一：根路径</strong>（强烈推荐）</p>
+<p>访问：https://panel.yourdomain.com/</p>
+<p>优点：</p>
+<ol>
+  <li>✔ 配置简单</li>
+  <li>  ✔ 兼容性最好</li>
+  <li>    ✔ 几乎不会出错</li>
+</ol>
+<p> <strong>方式二：随机路径</strong>（隐藏面板）</p>
+<p>例如：<br>
+  /nlPx9geBcBRDO14gXT/</p>
+<p>访问：<br>
+  https://panel.yourdomain.com/nlPx9geBcBRDO14gXT/<br>
+  </p>
+<p><strong>风险点</strong></p>
+<ol>
+  <li>❌ Nginx location 容易写错</li>
+  <li>❌ 反代路径不匹配</li>
+  <li>❌ 面板打不开</li>
+</ol>
+<p><strong>七、常见问题（100%会遇到）</strong></p>
+<p>  <strong>Q1：打开还是 Nginx 默认页？</strong></p>
+<p>原因：默认站点未关闭</p>
+<p>解决：</p>
+	
+<p class="copy_layout"> <span class="copy-text" id="copyButton9">复制</span>
+  <span class="copy-content" id="copyText9"> rm /etc/nginx/sites-enabled/default
+  <br>
+  systemctl reload nginx
+	</span></p>
+	
+<p>   <strong>Q2：反代后打不开？</strong></p>
+<p>检查：</p>
+<ol>
+  <li>端口是否正确（54321）</li>
+  <li>面板是否在运行</li>
+  <li>  防火墙是否放行</li>
+</ol>
+<p> <strong>Q3：HTTPS 不生效</strong></p>
+<p>检查：</p>
+<ol>
+  <li>域名是否解析成功</li>
+  <li>80/443端口是否开放</li>
+  <li>  certbot 是否成功执行</li>
+</ol>
+<p><strong>八、推荐的 3X-UI 正确架构（进阶）</strong></p>
+<p>这一期只是基础优化，真正推荐结构是：</p>
+<p><img src="images/dj59.png" width="300" height="94" alt=""/></p>
+<p>  👉 <strong>核心思想</strong></p>
+<ol>
+  <li>面板 ≠ 节点</li>
+  <li>域名只给面板用</li>
+  <li>  节点走 Reality / TLS</li>
+</ol>
+<p><strong>九、总结（重点回顾）</strong></p>
+<p>本期你完成了：</p>
+<ol>
+  <li>✔ 域名绑定服务器</li>
+  <li>✔ HTTPS 加密访问</li>
+  <li>  ✔ Nginx 反向代理</li>
+  <li>    ✔ 隐藏面板真实端口</li>
+</ol>
+<p>下一步，如果你想进一步提升：</p>
+<ol>
+  <li>服务器安全优化</li>
+  <li>端口扫描防护</li>
+  <li>高级部署架构</li>
+</ol>
+<p>后面我会继续把这一套，做成完整的“从0到稳定方案”。</p>
+<p>如果你觉得这篇对你有帮助，可以收藏一下。</p>
+<p></p>
+	<script type="text/javascript" src="../css/copytext.js"></script>
+<!--内容区域结束-->
+</div>
+
+</div>
+	
+<div class="video_list">
+<!--相关视频开始-->
+
+
+<!--相关视频结束-->
+</div>
+
+</div>
+
+<footer class="footer">
+<div class="footer_nav">
+Copyright &copy; 2026 科技小露 
+<a href="../index.html">首页</a><a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube频道</a><a href="../contact.html">联系我们</a> </div>
+<div class="tips">
+我是小露，我的博客主要分享科技和软件教学视频，偶尔也会分享生活vlog，谢谢你的关注！<br>
+*本站部分内容来自网络，如果您是内容或软件的作者，不希望您的内容在本站展示，请联系我们，谢谢！
+</div>
+</footer>
+
+</body>
+</html>
