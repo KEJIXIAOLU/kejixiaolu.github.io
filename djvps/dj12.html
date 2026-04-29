@@ -38,214 +38,358 @@
 
 <div class="container">
 <div class="left">
-<h1>3X-UI 第三期：
-  域名 + HTTPS + Nginx 反向代理完整教程（隐藏面板实战）<br>
-</h1>
+<h1>🚀 3X-UI 第三期：
+  
+  域名 + HTTPS + Nginx 反代隐藏面板</h1>
 <div class="video">
   <!--内容区域开始-->
   
-  <p class="date"> 🕓2026年04月18日</p>
-<p>视频教程：▶</p>
-<p>在前两期中，我们已经完成了：</p>
+  <p class="date"> 🕓2026年04月29日</p>
+<p>视频教程：▶<a href="https://youtu.be/b79BM2OF4jY?si=cCHbnLt-URjAiqJ4" target="_blank">https://youtu.be/b79BM2OF4jY?si=cCHbnLt-URjAiqJ4</a></p>
+<p>如果你已经完成了：</p>
 <ol>
-  <li>✅ 3X-UI 面板基础部署</li>
-  <li>✅ VLESS + Reality 节点搭建</li>
+  <li>3X-UI 面板基础搭建</li>
+  <li>  VLESS + Reality 节点创建</li>
 </ol>
-<p>这一期，我们正式进入进阶优化阶段：</p>
-<p>🎯 实现：域名访问 + HTTPS 加密 + Nginx 反向代理隐藏面板</p>
-<p><strong>一、为什么 3X-UI 一定要加域名 + HTTPS？</strong></p>
-<p>很多人会问：</p>
-<p>❓ Reality 已经很安全了，还需要域名吗？</p>
-<p>答案是：<strong>需要，而且很重要。</strong></p>
-<p>原因分析：</p>
-<p>如果你直接使用：IP + 端口（例如：1.2.3.4:54321）</p>
-<p>那么你的服务是：</p>
-<ol>
-  <li>❌ 非标准 Web 流量</li>
-  <li>❌ 没有 HTTPS 加密</li>
-  <li> ❌ 特征明显（容易被识别）</li>
-</ol>
-<p><strong>加上域名 + HTTPS 后</strong></p>
-<p>你的访问会变成：https://yourdomain.com</p>
-<p>优势：</p>
-<ol>
-  <li>✔ 看起来像正常网站流量</li>
-  <li>✔ 支持 HTTPS 加密</li>
-  <li>✔ 可以配合 Nginx 做流量转发</li>
-  <li>✔ 隐藏真实端口（关键点）</li>
-</ol>
-<p><strong>二、域名解析配置（A记录）</strong></p>
-<p>在你的域名服务商（如 Cloudflare / 阿里云 / 腾讯云）中添加：</p>
-<p><img src="images/dj58.png" width="450" height="77" alt=""/><br>
+<p>那么接下来这一期非常关键👇</p>
+<p>👉 <strong>面板安全加固 + 反向代理隐藏 + HTTPS加密访问</strong></p>
+<p>很多人其实就卡在这一阶段。</p>
+<p><strong>一、为什么一定要做 Nginx 反代？</strong></p>
+<p>默认情况下，3X-UI 面板的访问方式是：<br>
 </p>
-<p>示例：<br>
-s.lu666.top → 1.2.3.4</p>
-<p><strong>三、安装 Nginx（反代核心）</strong></p>
-<p>Nginx 是整个架构的关键组件，用于做“反向代理”。</p>
-<p><strong>安装命令</strong></p>
-<p class="copy_layout">
-<span class="copy-text" id="copyButton1">复制</span>
-  <span class="copy-content" id="copyText1">
-    apt install nginx -y</span></p>
-  <p>启动服务：</p>
   
 <p class="copy_layout">
-  <span class="copy-text" id="copyButton2">复制</span>
-  <span class="copy-content" id="copyText2">
-    systemctl start nginx</span>
-</p>
+  <span class="copy-text" id="copyButton1">复制</span>
+  <span class="copy-content" id="copyText1">  https://IP:端口/admin</span> </p>
 	
-  <p><strong>验证是否成功</strong></p>
-  <p>浏览器访问：<br>
-    http://你的服务器IP</p>
-  <p>看到：Welcome to nginx! ，<br>
-    说明安装成功 ✅</p>
-  <p><strong>四、申请 HTTPS 证书（Let's Encrypt）</strong></p>
-  <p>推荐使用免费证书：
-    Let's Encrypt<br>
-    安装：</p>
+  <p>这个方式有几个明显问题：</p>
+  <ol>
+    <li>❌ IP 和端口直接暴露在公网 </li>
+    <li> ❌ 容易被扫描工具探测</li>
+    <li> ❌ 后台路径固定（/admin）</li>
+    <li> ❌ 安全性几乎为 0<br>
+    </li>
+  </ol>
+  <p>👉 本质上就是：<strong>把后台直接暴露在互联网上</strong></p>
+  <p><strong>🎯本教程要实现的效果</strong><br>
+    配置完成后，访问方式会变成：</p>
+	
   <p class="copy_layout">
-	  <span class="copy-text" id="copyButton3">复制</span>
-    <span class="copy-content" id="copyText3">
-      apt install certbot python3-certbot-nginx -y</span>  </p>
+	  <span class="copy-text" id="copyButton2">复制</span>
+    <span class="copy-content" id="copyText2">  https://你的域名/自定义路径</span> </p>
 	
-<p>申请证书：</p>
+<p>最终实现：</p>
+<ol>
+  <li>✅ 使用域名访问面板</li>
+  <li>✅ HTTPS 加密（小绿锁）</li>
+  <li>  ✅ 隐藏真实 IP 和端口</li>
+  <li>    ✅ 可自定义后台路径</li>
+  <li>    ✅ 提升整体安全性</li>
+</ol>
+<p><strong>二、环境准备</strong></p>
+<p> 1、域名一个，并托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank">Cloudflare </a><br>
+  推荐在 <a href="https://www.namesilo.com/?rid=fe81174he" target="_blank">Namesilo </a> 进行购买（新用户1美元优惠券：kejixiaolu），因为他的 WHOIS 隐私 是免费的，可以适当的进行一下隐私保护，而且域名还都挺便宜的。（域名可以在 <a href="https://www.namesilo.com/?rid=fe81174he" target="_blank">Namesilo </a>解析，也可以将域名托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> Cloudflare</a><a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> </a>，解析更快。）</p>
+<p> 2、一台境外 VPS 主流系统。
+  例如：Debian 12+ / Ubuntu 22.04+ / CentOS 8+<br>
+  六六云VPS注册网址：<a href="https://kjxl.cc/666clouds" target="_blank">https://kjxl.cc/666clouds</a>（双ISP，支持tiktok）<br>
+  全站九折优惠：XL666<br>
+  年付七折优惠：year30off</p>
+<p> Vultr 注册网址：<a href="https://www.vultr.com/?ref=9735525" target="_blank">https://kjxl.cc/vultr </a>（按时计费，最低6$/月。）</p>
+<p>搭建前，先检测服务器IP是否被封，确认IP可用。<br>
+  已经解析的域名，Win+R 输入 CMD 回车：键入ping 空格输入你的域名，检查一下是否可以 ping 通。</p>
+<p> 3、下载并安装 FinalShell SSH 工具<br>
+  Windows、macOS、Linux 版下载地址：<a href="https://www.hostbuf.com/t/988.html" target="_blank">点击下载</a></p>
+<p>4、请先确认以下条件，否则容易失败：</p>
+<ol>
+  <li>✅ 3X-UI 面板可以通过 IP 正常访问</li>
+  <li>  ✅ 已知道面板端口（如 12345）</li>
+  <li>    ✅ 域名已解析到当前服务器 IP</li>
+</ol>
+<p>👉 如果面板本身都打不开，建议先修复基础环境。</p>
+<p>1. 登录服务器<br>
+  使用 SSH 工具连接服务器。</p>
+<p>2. 更新系统</p>
+	
 <p class="copy_layout">
-	<span class="copy-text" id="copyButton4">复制</span>
-  <span class="copy-content" id="copyText4"> certbot --nginx -d panel.yourdomain.com</span></p>
-	
-<p>按提示输入邮箱；<br>
-  同意协议，即可完成。</p>
-<p><strong>五、Nginx 反向代理配置（核心步骤）</strong></p>
-<p>反代的本质：</p>
-<p>👉 用户访问域名 → Nginx → 转发到 3X-UI 面板端口</p>
-<p><strong></strong>1、创建文件:</p>
+  <span class="copy-text" id="copyButton3">复制</span>
+  <span class="copy-content" id="copyText3">  sudo apt update<br>
 
+sudo apt upgrade -y</span></p>
+	
+	
+<p>3. 安装必要工具</p>
+	
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton4">复制</span>
+  <span class="copy-content" id="copyText4">  sudo apt install -y nginx certbot python3-certbot-nginx openssl<br>
+sudo systemctl enable nginx
+<br>
+sudo systemctl start nginx</span></p>
+	
+<p><strong>三、安装 3X UI 后端</strong></p>
+<p>1. 使用官方安装脚本</p>
 <p class="copy_layout"> <span class="copy-text" id="copyButton5">复制</span>
-  <span class="copy-content" id="copyText5"> nano /etc/nginx/conf.d/3xui.conf </span></p>
-	
-<p>2、标准配置示例：</p>
+	<span class="copy-content" id="copyText5"> bash <(curl -Ls https://raw.githubusercontent.com/MHSanaei/3x-ui/main/install.sh)</span></p>
+
+<p>2. 安装选项选择<br>
+  端口：按 Enter 使用默认随机端口（例如 30235）<br>
+  SSL 证书：选择 2（IP 证书，临时使用）</p>
+<p>3. 安装完成后的信息<br>
+  脚本会显示：</p>
 	
 <p class="copy_layout">
-  <span class="copy-text" id="copyButton6">复制</span> 
-  <span class="copy-content" id="copyText6"> server {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;listen 80;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;server_name panel.yourdomain.com;<br>
+  <span class="copy-text" id="copyButton6">复制</span>
+  <span class="copy-content" id="copyText6">  Panel Installation Complete!<br>
+Username: xxxxx<br>
+Password: xxxxx
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 301 https://$host$request_uri;
-    <br>
-    }<br>
-    <br>
-server {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;listen 443 ssl;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;server_name panel.yourdomain.com;<br>
+Port: 30235
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ssl_certificate /etc/letsencrypt/live/panel.yourdomain.com/fullchain.pem;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ssl_certificate_key /etc/letsencrypt/live/panel.yourdomain.com/privkey.pem;<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;location / {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_pass http://127.0.0.1:54321;<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header Host $host;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header X-Real-IP $remote_addr;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header Upgrade $http_upgrade;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header Connection "upgrade";
-    <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-}
-
-</span></p>
+WebBasePath: 6YxarJjUrIIGZZFwaa
+Access<br>
+URL: https://your-ip:30235/6YxarJjUrIIGZZFwaa</span></p>
 	
-<p>3、测试</p>
+<p>记录这些信息，后续配置需要。</p>
+<p>4、检查 3X UI 是否运行</p>
 	
 <p class="copy_layout"> <span class="copy-text" id="copyButton7">复制</span>
-  <span class="copy-content" id="copyText7"> nginx -t </span></p>	
-
-<p>4、修改完成后重启</p>
+	<span class="copy-content" id="copyText7"> sudo ss -tlnp | grep 端口</span></p>
+	
+<p>看到监听状态说明正常。</p>
+<p>3、放行端口</p>
 	
 <p class="copy_layout"> <span class="copy-text" id="copyButton8">复制</span>
-  <span class="copy-content" id="copyText8"> systemctl restart nginx </span></p>
+	<span class="copy-content" id="copyText8"> iptables -I INPUT -p tcp --dport 端口 -j ACCEPT</span></p>
 	
-<p>👉 如果你不想一集一集慢慢搭，我在会员频道内容里已经整理好：</p>
-<ol>
-  <li>✅  一键部署完整配置模板</li>
-  <li>✅  包含 Nginx + Reality + 分流规则</li>
-  <li>✅  直接复制即可</li>
-</ol>
-<p>适合想一步到位的人。</p>
-<p><strong>六、3X-UI 面板路径配置详解（避坑重点）</strong></p>
-<p><strong>方式一：根路径</strong>（强烈推荐）</p>
-<p>访问：https://panel.yourdomain.com/</p>
-<p>优点：</p>
-<ol>
-  <li>✔ 配置简单</li>
-  <li>  ✔ 兼容性最好</li>
-  <li>    ✔ 几乎不会出错</li>
-</ol>
-<p> <strong>方式二：随机路径</strong>（隐藏面板）</p>
-<p>例如：<br>
-  /nlPx9geBcBRDO14gXT/</p>
-<p>访问：<br>
-  https://panel.yourdomain.com/nlPx9geBcBRDO14gXT/<br>
-  </p>
-<p><strong>风险点</strong></p>
-<ol>
-  <li>❌ Nginx location 容易写错</li>
-  <li>❌ 反代路径不匹配</li>
-  <li>❌ 面板打不开</li>
-</ol>
-<p><strong>七、常见问题（100%会遇到）</strong></p>
-<p>  <strong>Q1：打开还是 Nginx 默认页？</strong></p>
-<p>原因：默认站点未关闭</p>
-<p>解决：</p>
+<p><strong>四、生成自签名证书</strong><br>
+  因为 IP 证书有效期短，我们先用自签名证书配置 Nginx。</p>
+<p>1. 创建证书目录</p>
 	
 <p class="copy_layout"> <span class="copy-text" id="copyButton9">复制</span>
-  <span class="copy-content" id="copyText9"> rm /etc/nginx/sites-enabled/default
-  <br>
-  systemctl reload nginx
-	</span></p>
+	<span class="copy-content" id="copyText9"> sudo mkdir -p /etc/nginx/ssl</span></p>
 	
-<p>   <strong>Q2：反代后打不开？</strong></p>
-<p>检查：</p>
+<p>2. 生成证书</p>
+<p class="copy_layout"> <span class="copy-text" id="copyButton10">复制</span>
+	<span class="copy-content" id="copyText10"> sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/3x-ui.key -out /etc/nginx/ssl/3x-ui.crt -subj "/C=CN/ST=State/L=City/O=Org/CN=xg.lu666.top"</span></p>
+	
+<p>图示：OpenSSL 证书生成命令</p>
+<p><img src="images/dj63.png" width="500" height="176" alt=""/></p>
+<p>3. 验证文件是否存在</p>
+	
+<p class="copy_layout"> <span class="copy-text" id="copyButton11">复制</span>
+	<span class="copy-content" id="copyText11"> ls -la /etc/nginx/ssl/</span></p>
+	
+<p>应该看到 3x-ui.crt 和 3x-ui.key。</p>
+<p><strong>五、配置 Nginx 反代</strong></p>
+<p>1. 创建配置文件<br>
+</p>
+	
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton12">复制</span>
+  <span class="copy-content" id="copyText12">  sudo nano /etc/nginx/sites-available/3x-ui</span></p>
+	
+<p>2.  粘贴配置内容</p>
+	
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton13">复制</span>
+  <span class="copy-content" id="copyText13">  upstream 3x_ui_backend {
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;server 127.0.0.1:30235;<br>
+}<br>
+<br>
+server {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;listen 80;
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;server_name your-domain.com www.your-domain.com;<br>
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;location / {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 301 https://$server_name$request_uri;
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<br>
+server {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;listen 443 ssl http2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;server_name your-domain.com www.your-domain.com;
+
+    <br>
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;ssl_certificate /etc/nginx/ssl/3x-ui.crt;
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;ssl_certificate_key /etc/nginx/ssl/3x-ui.key;<br>
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;ssl_protocols TLSv1.2 TLSv1.3;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ssl_ciphers HIGH:!aNULL:!MD5; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;ssl_prefer_server_ciphers on;
+
+    <br>
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;location /6YxarJjUrIIGZZFwaa/ {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_pass http://3x_ui_backend/6YxarJjUrIIGZZFwaa/;
+        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_ssl_verify off;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_http_version 1.1;
+        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header Host $host;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header X-Real-IP $remote_addr;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header X-Forwarded-Proto $scheme;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header Upgrade $http_upgrade;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header Connection "upgrade";
+        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_connect_timeout 60s;
+        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_send_timeout 60s;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_read_timeout 60s;
+        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_buffering off;
+        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_request_buffering off;
+        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+        <br>
+        }</span></p>		
+	
+	
+<p>注意：把 your-domain.com 换成你的真实域名；<br>
+  把 30235 和 6YxarJjUrIIGZZFwaa 换成你的实际端口和路径。</p>
+<p>3. 保存并退出</p>
+<p>Ctrl + O → Enter → Ctrl + X。</p>
+<p>4.启用配置</p>
+	
+<p class="copy_layout"> <span class="copy-text" id="copyButton14">复制</span>
+<span class="copy-content" id="copyText14">  sudo ln -s /etc/nginx/sites-available/3x-ui /etc/nginx/sites-enabled/<br>sudo rm /etc/nginx/sites-enabled/default</span></p>
+
+	
+
+	
+	
+<p>5. 测试配置</p>
+
+<p class="copy_layout"> <span class="copy-text" id="copyButton15">复制</span>
+<span class="copy-content" id="copyText15"> sudo nginx -t</span></p>
+	
+	
+<p>6. 重载 Nginx</p>
+	
+<p class="copy_layout"> <span class="copy-text" id="copyButton16">复制</span>
+	<span class="copy-content" id="copyText16"> sudo systemctl reload nginx</span></p>
+	
+
+<p><strong>六、浏览器验证</strong></p>
+<p>1. 访问域名</p>
+	
+<p class="copy_layout"> <span class="copy-text" id="copyButton17">复制</span>
+	<span class="copy-content" id="copyText17"> https://your-domain.com/6YxarJjUrIIGZZFwaa/</span></p>
+	
+	
+<p>2. 证书警告<br>
+  因为用的是自签名证书，浏览器会提示“不受信任”。点击“高级” → “继续访问”即可。</p>
+<p>3. 登录 3X UI<br>
+  使用安装时显示的用户名和密码登录。</p>
+<p>图示：浏览器访问 3X UI 登录页<img src="images/dj62.png" width="800" height="398" alt=""/></p>
+	
+<p><strong>七、升级到真实 SSL 证书</strong></p>
+<p>
+  1. 停止 Nginx</p>
+	
+	
+<p class="copy_layout"><span class="copy-text" id="copyButton18">复制</span>
+  <span class="copy-content" id="copyText18"> sudo systemctl stop nginx</span></p>
+	
+<p>2. 申请 Let's Encrypt 证书</p>
+	
+<p class="copy_layout"><span class="copy-text" id="copyButton19">复制</span>
+<span class="copy-content" id="copyText19"> sudo certbot certonly --standalone -d your-domain.com</span></p>
+	
+
+<p>输入邮箱地址，同意条款。</p>
+<p>3. 启动 Nginx</p>
+<p class="copy_layout"><span class="copy-text" id="copyButton20">复制</span>
+  <span class="copy-content" id="copyText20"> sudo systemctl start nginx</span></p>
+	
+<p>4. 更新 Nginx 配置</p>
+	
+	
+<p class="copy_layout"><span class="copy-text" id="copyButton21">复制</span>
+  <span class="copy-content" id="copyText21">  sudo nano /etc/nginx/sites-available/3x-ui</span></p>
+	
+<p>把证书路径改成：</p>
+	
+<p class="copy_layout"><span class="copy-text" id="copyButton22">复制</span>
+<span class="copy-content" id="copyText22">  ssl_certificate /etc/letsencrypt/live/your-domain.com/fullchain.pem; <br> ssl_certificate_key /etc/letsencrypt/live/your-domain.com/privkey.pem;</span></p>
+	
+<p>5. 测试并重载<br>
+</p>
+	
+<p class="copy_layout"><span class="copy-text" id="copyButton23">复制</span>
+  <span class="copy-content" id="copyText23">  sudo nginx -t  <br>  sudo systemctl reload nginx</span></p>
+	
+
+<p>6. 验证</p>	
+	
+	
+<p>访问：https://域名/路径，应该看到绿色锁图标。</p>
+	
+<p class="copy_layout"><span class="copy-text" id="copyButton24">复制</span>
+<span class="copy-content" id="copyText24">  https://your-domain.com/6YxarJjUrIIGZZFwaa/</span></p>	
+
+	
+<p><strong>八、常见问题与解决</strong></p>
+<p>  问题1：访问显示 404</p>
 <ol>
-  <li>端口是否正确（54321）</li>
-  <li>面板是否在运行</li>
-  <li>  防火墙是否放行</li>
+  <li>检查路径是否正确（3X UI 的 WebBasePath）</li>
+  <li>确认端口是否匹配
+  <br>
+</li>
 </ol>
-<p> <strong>Q3：HTTPS 不生效</strong></p>
-<p>检查：</p>
+<p>  问题2：循环重定向</p>
 <ol>
-  <li>域名是否解析成功</li>
-  <li>80/443端口是否开放</li>
-  <li>  certbot 是否成功执行</li>
+  <li>检查 Nginx 配置中的 proxy_pass 是否有尾部斜杠</li>
+  <li>确认 3X UI 后端是否运行
+  <br>
+</li>
 </ol>
-<p><strong>八、推荐的 3X-UI 正确架构（进阶）</strong></p>
-<p>这一期只是基础优化，真正推荐结构是：</p>
-<p><img src="images/dj59.png" width="300" height="94" alt=""/></p>
-<p>  👉 <strong>核心思想</strong></p>
+<p>  问题3：证书申请失败</p>
 <ol>
-  <li>面板 ≠ 节点</li>
-  <li>域名只给面板用</li>
-  <li>  节点走 Reality / TLS</li>
+  <li>确保域名已解析到服务器 IP</li>
+  <li>停止 Nginx 释放 80 端口
+  <br>
+</li>
 </ol>
-<p><strong>九、总结（重点回顾）</strong></p>
-<p>本期你完成了：</p>
+<p>  问题4：端口冲突</p>
 <ol>
-  <li>✔ 域名绑定服务器</li>
-  <li>✔ HTTPS 加密访问</li>
-  <li>  ✔ Nginx 反向代理</li>
-  <li>    ✔ 隐藏面板真实端口</li>
+  <li>检查 80/443 端口是否被占用</li>
+  <li>使用 sudo ss -tlnp | grep :80 查看</li>
 </ol>
-<p>下一步，如果你想进一步提升：</p>
+<p>  问题5：unable to resolve host</p>
 <ol>
-  <li>服务器安全优化</li>
-  <li>端口扫描防护</li>
-  <li>高级部署架构</li>
+  <li>这是主机名解析警告，不影响功能<br>
+</li>
 </ol>
-<p>后面我会继续把这一套，做成完整的“从0到稳定方案”。</p>
-<p>如果你觉得这篇对你有帮助，可以收藏一下。</p>
+<p><strong>📌 九、总结</strong></p>
+<p>通过这篇教程，你已经完成了 3X-UI 面板部署中的关键一步：</p>
+<ol>
+  <li>✅ 配置 Nginx 反代</li>
+  <li>✅ 支持域名访问</li>
+  <li> ✅ 启用 HTTPS 加密</li>
+  <li> ✅ 自动续期 SSL 证书</li>
+</ol>
+<p>如果你能够顺利完成这些操作，说明你已经超过大多数刚入门的用户。</p>
+<p>⚠️<strong> 注意事项</strong></p>
+<ol>
+  <li>3X UI 的端口和路径每次安装都不同，记得记录</li>
+  <li>定期备份配置文件</li>
+  <li> 及时更新系统和软件</li>
+  <li> 证书会自动续期，无需手动操作</li>
+</ol>
+<p>💬 <strong>写在最后</strong></p>
+<p>  这个搭建过程适合初学者，步骤清晰，问题少。如果你在搭建过程中遇到其他问题，可以在评论区留言，我会尽力帮助解决。</p>
+<p>希望这篇文章对你有帮助！如果觉得有用，记得点赞收藏哦~</p>
+<p><strong>🚀 下一期预告 </strong></p>
+<p> 👉 3X-UI 两层架构搭建教程（新手可直接照做）</p>
+<p>如果你对稳定性和长期使用有更高要求，这一部分会非常关键。</p>
 <p></p>
 	<script type="text/javascript" src="../css/copytext.js"></script>
 <!--内容区域结束-->
