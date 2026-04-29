@@ -192,3 +192,149 @@ document.getElementById('copyButton15').addEventListener('click', function() {
     selection.removeAllRanges();
     //alert("文本已复制到剪贴板");
 });
+
+//复制16代码
+document.getElementById('copyButton16').addEventListener('click', function() {
+    var copyText = document.getElementById("copyText16");
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(copyText);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    //alert("文本已复制到剪贴板");
+});
+
+//复制17代码
+document.getElementById('copyButton17').addEventListener('click', function() {
+    var copyText = document.getElementById("copyText17");
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(copyText);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    //alert("文本已复制到剪贴板");
+});
+
+
+//复制18代码
+document.getElementById('copyButton18').addEventListener('click', function() {
+    var copyText = document.getElementById("copyText18");
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(copyText);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    //alert("文本已复制到剪贴板");
+});
+
+//复制19代码
+document.getElementById('copyButton19').addEventListener('click', function() {
+    var copyText = document.getElementById("copyText19");
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(copyText);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    //alert("文本已复制到剪贴板");
+});
+
+//复制20代码
+document.getElementById('copyButton20').addEventListener('click', function() {
+    var copyText = document.getElementById("copyText20");
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(copyText);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    //alert("文本已复制到剪贴板");
+});
+
+//复制21代码
+document.getElementById('copyButton21').addEventListener('click', function() {
+    var copyText = document.getElementById("copyText21");
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(copyText);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    //alert("文本已复制到剪贴板");
+});
+
+//复制22代码
+document.getElementById('copyButton22').addEventListener('click', function() {
+    var copyText = document.getElementById("copyText22");
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(copyText);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    //alert("文本已复制到剪贴板");
+});
+
+//复制23代码
+document.getElementById('copyButton23').addEventListener('click', function() {
+    var copyText = document.getElementById("copyText23");
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(copyText);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    //alert("文本已复制到剪贴板");
+});
+
+//复制24代码
+document.getElementById('copyButton24').addEventListener('click', function() {
+    var copyText = document.getElementById("copyText24");
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(copyText);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    //alert("文本已复制到剪贴板");
+});
+
+//复制25代码
+document.getElementById('copyButton25').addEventListener('click', function() {
+    var copyText = document.getElementById("copyText25");
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(copyText);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    //alert("文本已复制到剪贴板");
+});
+
+//复制26代码
+document.getElementById('copyButton26').addEventListener('click', function() {
+    var copyText = document.getElementById("copyText26");
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(copyText);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    //alert("文本已复制到剪贴板");
+});
+
+
