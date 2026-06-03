@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>3X-UI第一期：从零搭建教程（Debian 12）为什么 ufw 放行无效？</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css" />
+<link href="../css/article.css" rel="stylesheet" type="text/css" />
+<link href="../css/article_app.css" rel="stylesheet" type="text/css" media="screen and (max-width:999px)" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D871VH8G9E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D871VH8G9E');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1722699328777442"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+<header class="header">
+<div class="inner">
+<!--<div class="logo">科技小露</div>-->
+<div class="nav">
+<a href="https://kejixiaolu.github.io/">科技小露</a>
+<a href="../jichang.html">机场评测</a>
+<a href="../tiktok.html">干货分享</a>
+<a href="../djvps.html">搭建</a>
+<a href="../wangzhan.html">网站</a>
+<a href="../ruanjian.html">软件</a>
+<a href="gongju.html">工具</a>
+<a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube</a>
+</div>
+</div>
+</header>
+
+<div class="container">
+<div class="left">
+<h1>新版 3X-UI 最强更新！一台 VPS 通管全球节点！ 科学上网 Xray 一键脚本可视化教程<br>
+</h1>
+<div class="video">
+  <!--内容区域开始-->
+  
+  <p class="date"> 🕓2026年06月03日</p>
+<p>视频教程：<a href="https://youtu.be/tL-SUy3T6Fw?si=diHpIBPU8zfVfnOs" target="_blank">▶https://youtu.be/tL-SUy3T6Fw?si=diHpIBPU8zfVfnOs</a></p>
+<p>手里的 VPS 越来越多，每次换节点、续流量都要挨个切网页、换账号登录，是不是头都大了？<br>
+  最近老牌可视化面板 3X-UI 迎来了 V3.1.0的重磅更新！这次不仅重构了前端交互，更史诗级地上线了【分布式主控集群】和完全机场化的【多入站客户端管理】。</p>
+<p>今天小露就带大家进行一场硬核实操：从 Vultr 服务器购买、Debian 12 环境配置、Cloudflare 域名解析，再到多台 VPS 跨国无缝合体！<br>
+  当然，新版本虽然强，但小露在测试过程中也帮大家踩出了好几个极其隐蔽的“隐藏大坑”（比如订阅链接报错、TLS证书套用错误、端口未放行等），视频里都会一一为大家拆解和修复！</p>
+<p>3X-UI开源项目地址:<a href="https://github.com/MHSanaei/3x-ui" target="_blank">https://github.com/MHSanaei/3x-ui</a></p>
+<p><strong>3X-ui 面板</strong>更新</p>
+<p><strong><img src="images/dj65.png" width="800" height="360" alt=""/></strong></p>
+<p><strong>准备工作</strong><br>
+1、域名一个，并托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank">Cloudflare </a><br>
+推荐在 <a href="https://www.namesilo.com/?rid=fe81174he" target="_blank">Namesilo </a> 进行购买（新用户1美元优惠券：kejixiaolu），因为他的 WHOIS 隐私 是免费的，可以适当的进行一下隐私保护，而且域名还都挺便宜的。（域名可以在 <a href="https://www.namesilo.com/?rid=fe81174he" target="_blank">Namesilo </a>解析，也可以将域名托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> Cloudflare</a><a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> </a>，解析更快。）</p>
+<p><strong>✰</strong>如果要开启 CDN 和申请证书，须将域名托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> Cloudflare</a><a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> </a>。</p>
+<p> 2、境外 VPS 服务器。
+  <br>
+  六六云服务器：<a href="https://kjxl.cc/666clouds" target="_blank">https://kjxl.cc/666clouds</a>（双ISP，支持tiktok）<br>
+全站九折优惠：XL666<br>
+年付七折优惠：year30off</p>
+<p>LightNode 服务器：<a href="https://kjxl.cc/LightNode" target="_blank">https://kjxl.cc/LightNode</a>（按流量计费） <br>
+</p>
+<p> Vultr 服务器：<a href="https://www.vultr.com/?ref=9735525" target="_blank">https://kjxl.cc/vultr </a>（按时计费，最低5$/月。）</p>
+<p>准备云服务器：</p>
+<ol>
+  <li>系统：Debian 12</li>
+  <li>最低 1G 内存即可</li>
+  <li>打开 22 端口（SSH）</li>
+</ol>
+<p>搭建前，先检测服务器IP是否被封，确认IP可用。<br>
+已经解析的域名，Win+R 输入 CMD 回车：键入ping 空格输入你的域名，检查一下是否可以 ping 通。</p>
+<p>3、下载并安装 FinalShell SSH 工具<br>
+  Windows、macOS、Linux 版下载地址：<a href="https://www.hostbuf.com/t/988.html" target="_blank">点击下载</a></p>
+<p><strong>一、安装更新系统</strong></p>
+<p>登录服务器后，先更新系统：</p>
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton1">复制</span>
+  <span class="copy-content" id="copyText1">
+    apt update &amp;&amp; apt upgrade -y</span>
+</p>
+  <p>等它跑完。</p>
+  <p>安装 curl (如果没有的话)：</p>
+  
+<p class="copy_layout">
+	 <span class="copy-text" id="copyButton2">复制</span>
+    <span class="copy-content" id="copyText2">
+      apt install curl -y</span>
+</p>
+	
+  <p><strong>二、安装 3X-UI</strong> 面板<br>
+    执行官方安装脚本：</p>
+ <p class="copy_layout">
+	 <span class="copy-text" id="copyButton3">复制</span>
+    <span class="copy-content" id="copyText3">
+      bash &lt;(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)</span>
+</p>
+	
+<p>安装完成后，系统会显示：</p>
+<ol>
+  <li>面板端口</li>
+  <li>用户名</li>
+  <li>密码</li>
+</ol>
+<p><strong>三、放行端口</strong></p>
+<p>将端口改成80/443/面板端口，放行端口指令：</p>
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton9">复制</span> 
+  <span class="copy-content" id="copyText9"> iptables -I INPUT -p tcp --dport 端口 -j ACCEPT<br>
+	</span>
+</p>
+<p>保存规则：</p>
+<p class="copy_layout">
+	<span class="copy-text" id="copyButton10">复制</span>
+	<span class="copy-content" id="copyText10"> apt install -y iptables-persistent<br>
+  netfilter-persistent save</span>
+</p>
+<p>&nbsp;</p>
+<p data-start="872" data-end="878"><strong>五、创建节点、多VPS管理看视频</strong></p>
+<p><img src="images/dj66.png" width="800" height="377" alt=""/></p>
+<p><strong>六、客户端下载</strong></p>
+<p>V2rayNG【需要最新版本】</p>
+<p>Windows（v2rayN）：<a href="https://github.com/2dust/v2rayN/releases/tag/6.23" target="_blank">https://github.com/2dust/v2rayN/releases/tag/6.23</a><br>
+  Android（v2rayNG）：<a href="https://github.com/2dust/v2rayNG/releases/tag/1.8.5" target="_blank">https://github.com/2dust/v2rayNG/releases/tag/1.8.5</a><br>
+  IOS（shadowrocket）：<a href="https://apps.apple.com/app/shadowrocket/id932747118" target="_blank">https://apps.apple.com/app/shadowrocket/id932747118</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<script type="text/javascript" src="../css/copytext.js"></script>
+<!--内容区域结束-->
+</div>
+
+</div>
+	
+<div class="video_list">
+<!--相关视频开始-->
+
+
+<!--相关视频结束-->
+</div>
+
+</div>
+
+<footer class="footer">
+<div class="footer_nav">
+Copyright &copy; 2026 科技小露 
+<a href="../index.html">首页</a><a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube频道</a><a href="../contact.html">联系我们</a> </div>
+<div class="tips">
+我是小露，我的博客主要分享科技和软件教学视频，偶尔也会分享生活vlog，谢谢你的关注！<br>
+*本站部分内容来自网络，如果您是内容或软件的作者，不希望您的内容在本站展示，请联系我们，谢谢！
+</div>
+</footer>
+
+</body>
+</html>
