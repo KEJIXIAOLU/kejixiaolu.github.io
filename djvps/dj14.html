@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>3X-UI第一期：从零搭建教程（Debian 12）为什么 ufw 放行无效？</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css" />
+<link href="../css/article.css" rel="stylesheet" type="text/css" />
+<link href="../css/article_app.css" rel="stylesheet" type="text/css" media="screen and (max-width:999px)" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D871VH8G9E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D871VH8G9E');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1722699328777442"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+<header class="header">
+<div class="inner">
+<!--<div class="logo">科技小露</div>-->
+<div class="nav">
+<a href="https://kejixiaolu.github.io/">科技小露</a>
+<a href="../jichang.html">机场评测</a>
+<a href="../tiktok.html">干货分享</a>
+<a href="../djvps.html">搭建</a>
+<a href="../wangzhan.html">网站</a>
+<a href="../ruanjian.html">软件</a>
+<a href="gongju.html">工具</a>
+<a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube</a>
+</div>
+</div>
+</header>
+
+<div class="container">
+<div class="left">
+<h1>3X-UI 节点连不上？新版 VLESS-Reality 无法联网与加载失败排错教程<br>
+</h1>
+<div class="video">
+  <!--内容区域开始-->
+  
+  <p class="date"> 🕓2026年08月26日</p>
+  <p class="date"><span style="line-height: 1.8; margin-bottom: 24px; color: #333333;">🎥 <strong>视频教程：<a href="https://youtu.be/tL-SUy3T6Fw?si=diHpIBPU8zfVfnOs" target="_blank">▶</a></strong><a href="#" target="_blank" style="color: #0066cc; text-decoration: underline;">点击这里观看视频教程</a></span></p>
+  <p class="date">
+   
+<span style="color: #333333">在上一期关于</span> <strong>3X-UI 可视化面板</strong> <span style="color: #333333">的视频发布后，收到很多小伙伴的留言反馈：随着面板重大更新与底层协议的调整，在新版面板下配置</span> <strong>VLESS-Reality</strong> <span style="color: #333333">节点时遇到了各种异常情况。</span></p>
+
+<p style="line-height: 1.8; margin-bottom: 8px; color: #333333;"><strong>常见故障现象包括：</strong></p>
+<ol>
+  <li>VLESS-Reality 节点连接正常，但<strong>无法联网</strong></li>
+  <li>网页可以打开，但<strong>图片与媒体资源加载失败</strong></li>
+  <li><strong>YouTube 无法播放</strong>或一直转圈缓冲</li>
+</ol>
+<p style="line-height: 1.8; margin-bottom: 8px; color: #333333;">针对这一系列由于版本更新引发的参数兼容问题，本篇图文教程将作为视频的补充文档，手把手带大家排查故障原因，彻底解决新版 3X-UI 的节点联网异常！<!-- 关联视频（样式统一） --><!-- 一、VPS 选购建议与推荐配置 --></p>
+<h3 style="font-size: 18px; font-weight: bold; margin-top: 24px; margin-bottom: 12px; color: #333;">一、VPS 选购建议与推荐配置</h3>
+
+<p style="line-height: 1.8; margin-bottom: 12px; color: #333333;">在 VPS 节点搭建的实际场景中，服务器的计算性能往往不是瓶颈，<strong>网络线路质量才是决定最终体验的灵魂</strong>。建议优先选择三网直连的 <strong>CN2 GIA 高级优化线路</strong>，晚高峰更稳定。</p>
+
+<!-- 推荐表格 -->
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; color: #333333;">
+  <thead>
+    <tr style="border-bottom: 2px solid #333333; text-align: left;">
+      <th style="padding: 8px;">套餐名称</th>
+      <th style="padding: 8px;">配置</th>
+      <th style="padding: 8px;">流量 / 带宽</th>
+      <th style="padding: 8px;">线路亮点</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom: 1px solid #e8e8e8;">
+      <td style="padding: 10px 8px;"><strong>DC6 CN2 GIA 20G</strong></td>
+      <td style="padding: 10px 8px;">2核 / 1G / 20G SSD</td>
+      <td style="padding: 10px 8px;">1000G / 2.5Gbps</td>
+      <td style="padding: 10px 8px;">三网 CN2 GIA / 10+ 机房免费切</td>
+    </tr>
+  </tbody>
+</table>
+
+<p style="line-height: 1.8; margin-bottom: 24px; color: #333333;">
+  👉 <strong>直达页面：</strong><a href="https://bwh88.net/aff.php?aff=70466&pid=87" target="_blank" style="color: #0066cc; text-decoration: underline;">点击查看 CN2 GIA 电子商务版详情</a> |<a href="https://bandwagonhost.com/aff.php?aff=70466&page=order/ecommerce" target="_blank"> 更多产品页面 </a></p>
+
+<!-- 二、准备工作 -->
+<h3 style="font-size: 18px; font-weight: bold; margin-top: 30px; margin-bottom: 12px; color: #333;">二、准备工作</h3>
+
+<ol style="line-height: 1.8; padding-left: 20px; margin-bottom: 24px; color: #333333;">
+  <li style="margin-bottom: 8px;"><strong>VPS 一台：</strong>重置好主流操作系统（推荐 Debian 12）。</li>
+  <li style="margin-bottom: 8px;"><strong>SSH 工具：</strong>下载并安装 FinalShell 工具（<a href="https://www.hostbuf.com/t/988.html" target="_blank" style="color: #0066cc; text-decoration: underline;">点击下载</a>）。</li>
+  <li style="margin-bottom: 8px;"><strong>域名准备（可选）：</strong>若想使用域名搭建，请参考<a href="https://www.kejixiaolu.com/djvps/yuming.html" target="_blank" style="color: #0066cc; text-decoration: underline;"> 这篇文章 </a>购买并托管域名。</li>
+</ol>
+	
+<!-- 三、重置系统 -->
+<h3 style="font-size: 18px; font-weight: bold; margin-top: 30px; margin-bottom: 12px; color: #333;">三、重置 VPS 系统</h3>
+
+<p style="line-height: 1.8; margin-bottom: 12px; color: #333333;">为了保证环境干净且无残留报错，建议在搭建前将 VPS 重置为干净的 <strong>Debian 12</strong> 系统（以搬瓦工 KiwiVM 面板为例）：</p>
+
+<ol style="line-height: 1.8; padding-left: 20px; margin-bottom: 24px; color: #333333;">
+  <li style="margin-bottom: 6px;">登录后台，先点击 <strong>Stop</strong> 停止 VPS 运行。</li>
+  <li style="margin-bottom: 6px;">在左侧边栏找到并点击 <strong>Install new OS</strong>。</li>
+  <li style="margin-bottom: 6px;">选择 <strong>Debian 12</strong> 64位系统，勾选同意并点击重装。</li>
+  <li style="margin-bottom: 6px;"><strong>关键步骤：</strong>重装完成后，页面会显示全新的 <strong>Root 密码</strong> 和 <strong>SSH 端口号</strong>，务必妥善保存。</li>
+</ol>
+
+<!-- 四、使用 SSH 连接 VPS -->
+<h3 style="font-size: 18px; font-weight: bold; margin-top: 30px; margin-bottom: 12px; color: #333;">四、使用 SSH 连接 VPS</h3>
+<p >打开你自己电脑的终端（Windows 打开 CMD / PowerShell，Mac 打开终端）或第三方工具（如 FinalShell），输入命令远程连接你的服务器：
+<p style="line-height: 1.8; margin-bottom: 8px; color: #333333;"><span style="line-height: 1.8; margin-bottom: 8px; color: #333333;">💡 <strong>默认 22 端口：</strong></span></p>
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton1">复制</span>
+  <span class="copy-content" id="copyText1">
+    ssh root@你的服务器IP</span>
+</p>
+<p></p>
+<p><span style="line-height: 1.8; margin-bottom: 8px; color: #333333;">💡 <strong>非默认端口（如 2002）：</strong></span><br></p>
+	
+	<p class="copy_layout">
+  <span class="copy-text" id="copyButton2">复制</span>
+  <span class="copy-content" id="copyText2">
+    ssh root@你的服务器IP -p 2002</span>
+</p>
+	
+  
+<p><span style="line-height: 1.8; margin-bottom: 24px; color: #595959; font-size: 13px;">* 提示：首次连接会提示 <code>Are you sure you want to continue connecting (yes/no)?</code>，输入 <strong>yes</strong> 回车，随后输入重置系统时保存的 <strong>Root 密码</strong> 即可（输入密码时屏幕不会显示字符，直接输完回车即可）。</span></p>
+<p><strong>五、搭建节点</strong></p>
+<p><strong>3.1 安装更新系统</strong></p>
+<p>登录服务器后，先更新系统： Debian / Ubuntu</p>
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton3">复制</span>
+  <span class="copy-content" id="copyText3">
+    apt update &amp;&amp; apt upgrade -y</span>
+</p>
+  <p>等它跑完。</p>
+  <p><strong>安装 curl</strong> （如果没有安装，建议安装 curl ）： </p>
+  
+<p class="copy_layout">
+	 <span class="copy-text" id="copyButton4">复制</span>
+    <span class="copy-content" id="copyText4">
+      apt install curl -y</span>
+</p>
+	
+  <p><strong>3.2 安装 3X-UI</strong> 面板</p>
+  <p>推荐安装 3x-ui 面板，因为它没有广告，界面整洁漂亮，美中不足的是，这个面板的安装部署阶段是全英文的，对于很多新手不是太友好。跟着视频操作，也不难。 3X-UI 面板官方项目地址：<a href="https://github.com/MHSanaei/3x-ui" target="_blank">点击访问</a></p>
+  <p>    执行官方一键安装脚本：</p>
+ <p class="copy_layout">
+	 <span class="copy-text" id="copyButton5">复制</span>
+    <span class="copy-content" id="copyText5">
+      bash &lt;(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)</span>
+</p>
+	
+<p>安装完成后，系统会显示：</p>
+<ol>
+  <li>面板端口</li>
+  <li>用户名</li>
+  <li>密码<br>
+  </li>
+</ol>
+<p>建议复制保存到记事本，登录需要用到。</p>
+<p><strong>3.3 安装部署</strong><br>
+  操作步骤较多，请 观看视频</p>
+<p>VLESS + Reality 参数设置：</p>
+<p>&nbsp;</p>
+<p><strong>六、放行端口操作</strong></p>
+<p>请务必放行相关端口：3X-UI面板端口 / 80 / 443，放行指令：</p>
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton6">复制</span> 
+  <span class="copy-content" id="copyText6"> iptables -I INPUT -p tcp --dport 端口 -j ACCEPT<br>
+	</span>
+</p>
+<p>若你不太明白，请使用以下命令一键关闭防火墙，生产环境不建议关闭防火墙，若仅仅是自建节点，请随意</p>
+<p class="copy_layout">
+	<span class="copy-text" id="copyButton7">复制</span>
+	<span class="copy-content" id="copyText7"> bash <(curl -fsSL https://raw.githubusercontent.com/V2RaySSR/OneKey/main/disable_firewall.sh)</span>
+</p>
+<p>如果执行 curl 命令时提示：<br>
+</p>
+	
+<p class="copy_layout">
+	<span class="copy-text" id="copyButton8">复制</span>
+	<span class="copy-content" id="copyText8"> -bash: curl: command not found</span>
+</p>
+	
+<p>说明系统没有安装 curl，请回到前面执行安装 curl 指令</p>
+<p><strong>七、开启 BBR 加速<br>
+</strong></p>
+	
+<p class="copy_layout">
+	<span class="copy-text" id="copyButton9">复制</span>
+	<span class="copy-content" id="copyText9"> echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+		<br>
+		echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+		<br>
+		sysctl -p</span>
+</p>
+	
+<p><strong>验证 BBR 是否开启成功 </strong></p>
+	
+<p class="copy_layout">
+	<span class="copy-text" id="copyButton10">复制</span>
+	<span class="copy-content" id="copyText10"> sysctl net.ipv4.tcp_congestion_control
+    <br>
+    lsmod | grep bbr</span>
+</p>
+	
+<p><strong>八、客户端下载</strong></p>
+<p>V2rayNG【需要最新版本】</p>
+<p>Windows（v2rayN）：<a href="https://github.com/2dust/v2rayN/releases/tag/6.23" target="_blank">https://github.com/2dust/v2rayN/releases/tag/6.23</a><br>
+  Android（v2rayNG）：<a href="https://github.com/2dust/v2rayNG/releases/tag/1.8.5" target="_blank">https://github.com/2dust/v2rayNG/releases/tag/1.8.5</a><br>
+  IOS（shadowrocket）：<a href="https://apps.apple.com/app/shadowrocket/id932747118" target="_blank">https://apps.apple.com/app/shadowrocket/id932747118</a></p>
+<p><strong>九、写在最后</strong></p>
+<p>无论是做视频还是写这篇教程，核心目的并不是去神话某一种协议，也不是宣称哪家的 VPS 就适合所有人。</p>
+<p>自建节点这件事，说到底还是要看你的实际使用场景：</p>
+<ol>
+  <li>有的朋友需要大流量看视频</li>
+  <li>有的朋友看重极致的大带宽与低延迟</li>
+  <li>有的朋友则更依赖干净稳定的 IP 质量来做业务</li>
+</ol>
+<p>所以大家需要根据自己的使用环境和预算来选择适合自己的 VPS。没有最好的网络方案，只有最适合你当前需求的选择。</p>
+<p></p>
+
+
+<p>&nbsp;</p>
+<script type="text/javascript" src="../css/copytext.js"></script>
+<!--内容区域结束-->
+</div>
+
+</div>
+	
+<div class="video_list">
+<!--相关视频开始-->
+
+
+<!--相关视频结束-->
+</div>
+
+</div>
+
+<footer class="footer">
+<div class="footer_nav">
+Copyright &copy; 2026 科技小露 
+<a href="../index.html">首页</a><a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube频道</a><a href="../contact.html">联系我们</a> </div>
+<div class="tips">
+我是小露，我的博客主要分享科技和软件教学视频，偶尔也会分享生活vlog，谢谢你的关注！<br>
+*本站部分内容来自网络，如果您是内容或软件的作者，不希望您的内容在本站展示，请联系我们，谢谢！
+</div>
+</footer>
+
+</body>
+</html>
