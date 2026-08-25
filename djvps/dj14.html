@@ -159,9 +159,7 @@
 </ol>
 <p>建议复制保存到记事本，登录需要用到。</p>
 <p><strong>3.3 安装部署</strong><br>
-  操作步骤较多，请 观看视频</p>
-<p>VLESS + Reality 参数设置：</p>
-<p>&nbsp;</p>
+  操作步骤较多，VLESS + Reality 参数设置，请 观看视频</p>
 <p><strong>六、放行端口操作</strong></p>
 <p>请务必放行相关端口：3X-UI面板端口 / 80 / 443，放行指令：</p>
 <p class="copy_layout">
@@ -169,26 +167,20 @@
   <span class="copy-content" id="copyText6"> iptables -I INPUT -p tcp --dport 端口 -j ACCEPT<br>
 	</span>
 </p>
-<p>若你不太明白，请使用以下命令一键关闭防火墙，生产环境不建议关闭防火墙，若仅仅是自建节点，请随意</p>
-<p class="copy_layout">
-	<span class="copy-text" id="copyButton7">复制</span>
-	<span class="copy-content" id="copyText7"> bash <(curl -fsSL https://raw.githubusercontent.com/V2RaySSR/OneKey/main/disable_firewall.sh)</span>
-</p>
-<p>如果执行 curl 命令时提示：<br>
-</p>
 	
-<p class="copy_layout">
-	<span class="copy-text" id="copyButton8">复制</span>
-	<span class="copy-content" id="copyText8"> -bash: curl: command not found</span>
-</p>
+	<blockquote style="background-color: #fffbe6; border-left: 4px solid #ffe58f; padding: 12px 16px; margin: 16px 0; color: #333333; font-size: 14px;">
+  💡 <strong>提示：</strong> 为避免端口被拦截导致节点无法连通，自建节点建议直接执行以下命令一键关闭防火墙（生产环境/建站服务器请慎用）：
+</blockquote>
 	
-<p>说明系统没有安装 curl，请回到前面执行安装 curl 指令</p>
+<p><span class="copy-text" id="copyButton7">复制</span>
+  <span class="copy-content" id="copyText7"> iptables -P INPUT ACCEPT && iptables -P FORWARD ACCEPT && iptables -P OUTPUT ACCEPT && iptables -F</span></p>
+
 <p><strong>七、开启 BBR 加速<br>
 </strong></p>
 	
 <p class="copy_layout">
-	<span class="copy-text" id="copyButton9">复制</span>
-	<span class="copy-content" id="copyText9"> echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+	<span class="copy-text" id="copyButton8">复制</span>
+	<span class="copy-content" id="copyText8"> echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 		<br>
 		echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 		<br>
@@ -198,8 +190,8 @@
 <p><strong>验证 BBR 是否开启成功 </strong></p>
 	
 <p class="copy_layout">
-	<span class="copy-text" id="copyButton10">复制</span>
-	<span class="copy-content" id="copyText10"> sysctl net.ipv4.tcp_congestion_control
+	<span class="copy-text" id="copyButton9">复制</span>
+	<span class="copy-content" id="copyText9"> sysctl net.ipv4.tcp_congestion_control
     <br>
     lsmod | grep bbr</span>
 </p>
