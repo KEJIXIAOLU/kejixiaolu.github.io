@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>S-UI面板搭建教程：Anytls | Hysteria2 | Vless+Reality 节点</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css" />
+<link href="../css/article.css" rel="stylesheet" type="text/css" />
+<link href="../css/article_app.css" rel="stylesheet" type="text/css" media="screen and (max-width:999px)" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D871VH8G9E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D871VH8G9E');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1722699328777442"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+<header class="header">
+<div class="inner">
+<!--<div class="logo">科技小露</div>-->
+<div class="nav">
+<a href="https://kejixiaolu.github.io/">科技小露</a>
+<a href="../jichang.html">机场评测</a>
+<a href="../tiktok.html">干货分享</a>
+<a href="../djvps.html">搭建</a>
+<a href="../wangzhan.html">网站</a>
+<a href="../ruanjian.html">软件</a>
+<a href="gongju.html">工具</a>
+<a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube</a>
+</div>
+</div>
+</header>
+
+<div class="container">
+<div class="left">
+<h1>🚀 新 S-UI 面板搭建热门协议：
+  
+  Anytls | Hysteria2 | Vless+Reality 节点教程</h1>
+<div class="video">
+  <!--内容区域开始-->
+  
+  <p class="date"> 🕓2026年09月3日</p>
+<p>🎥视频教程：▶<a href="https://youtu.be/b79BM2OF4jY?si=cCHbnLt-URjAiqJ4" target="_blank">点击这里观看视频教程</a></p>
+<p><strong>一、什么是 S-ui 面板？</strong><br>
+  S-ui 是基于 Sing-box 内核的可视化 Web 管理面板（相当于 Sing-box 版的 3X-UI）。它将复杂的代码配置转化为网页操作，无需手搓代码，点点鼠标即可搭建 VLESS、Hysteria 2、TUIC 等全套科学上网协议。</p>
+<p><strong>S-ui 面板 5 大核心特点：</strong></p>
+<ol>
+  <li><strong>原生支持前沿协议：</strong> 完美兼容 Hysteria 2 与 TUIC，晚高峰及弱网环境下的抢带宽提速能力极强。</li>
+  <li><strong>一键生成聚合订阅： </strong>内置订阅分发，可直接导出链接导入 Clash Verge、小火箭（Shadowrocket）、v2rayN 等客户端。</li>
+  <li><strong>多用户与流量限制：</strong> 支持单独设定账号月流量、到期时间与实时用量监控，适合多设备或朋友合租。</li>
+  <li><strong>自动证书与路由分流：</strong> 支持 SSL 证书一键申请与自动续期，可视化配置出入站分流与端口复用。</li>
+  <li><strong>轻量低耗与实时监控：</strong> 系统资源占用极低，后台实时动态展示 VPS CPU、内存及上下行网速。</li>
+  </ol>
+<p>S-UI 开源项目地址：<a href="https://github.com/alireza0/s-ui" target="_blank">&gt;&gt;点击进入项目</a></p>
+<p><img src="images/dj68.png" width="850" height="417" alt=""/></p>
+<p><strong><br>
+  二、准备工作</strong></p>
+<p> <strong>1、VPS 一台：</strong>重置好主流操作系统（推荐 Debian 12）</p>
+<p>搬瓦工 VPS 注册网址：<span style="line-height: 1.8; margin-bottom: 24px; color: #333333;"><a href="https://bwh88.net/aff.php?aff=70466&pid=87" target="_blank" style="color: #0066cc; text-decoration: underline;">点击查看 CN2 GIA 高级优化线路</a> |<a href="https://bandwagonhost.com/aff.php?aff=70466&page=order/ecommerce" target="_blank"> 更多产品页面</a></span></p>
+<p>  六六云VPS注册网址：<a href="https://kjxl.cc/666clouds" target="_blank">https://kjxl.cc/666clouds</a>（双ISP，支持tiktok）<br>
+  全站九折优惠：XL666<br>
+  年付七折优惠：year30off</p>
+<p> Vultr 注册网址：<a href="https://www.vultr.com/?ref=9735525" target="_blank">https://kjxl.cc/vultr </a>（按时计费，最低6$/月。）</p>
+<p>PS：搭建前，先检测服务器IP是否被封，确认IP可用。  <br>
+  已经解析的域名，按键盘 Win+R ，输入 CMD 回车：键入 ping 空格输入你的域名，检查一下是否可以 ping 通。</p>
+<p><strong>2、域名一个：</strong>将域名托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank">Cloudflare </a>，<span style="margin-bottom: 8px;">请参考<a href="https://www.kejixiaolu.com/djvps/yuming.html" target="_blank" style="color: #0066cc; text-decoration: underline;"> 这篇文章 </a>购买并托管域名。</span></p>
+<p> 推荐在 <a href="https://www.namesilo.com/?rid=fe81174he" target="_blank">Namesilo </a> 进行购买（新用户1美元优惠券：kejixiaolu），因为他的 WHOIS 隐私 是免费的，可以适当的进行一下隐私保护，而且域名还都挺便宜的。（域名可以在 <a href="https://www.namesilo.com/?rid=fe81174he" target="_blank">Namesilo </a>解析，也可以将域名托管到 <a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> Cloudflare</a><a href="https://dash.cloudflare.com/1fd6ef1f052a191089c7a5628aa6f5a7" target="_blank"> </a>，解析更快。）</p>
+<p> <strong>3、SSH 工具</strong></p>
+<p>下载安装 FinalShell 工具下载地址：<a href="https://www.hostbuf.com/t/988.html" target="_blank">&gt;&gt;点此下载 Windows、macOS、Linux 版</a></p>
+<p><strong>三、一键部署 S-UI 面板</strong></p>
+  
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton1">复制</span>
+  <span class="copy-content" id="copyText1">  bash <(curl -Ls https://raw.githubusercontent.com/alireza0/s-ui/master/install.sh)</span> </p>
+	
+  <ul>
+    <li> • 在 SSH 里进行 S-UI 设置，输入 s-ui 调出主菜单，如下：</li>
+    <li><br>
+    </li>
+    </ul>
+  <p><img src="images/dj69.png" width="750" height="569" alt=""/><br>
+    </p>
+  <p><strong>四、申请SSL证书</strong><strong></strong></p>
+  <p>输入数字 “19” SSL 证书管理，接下来输入“1” Get SSL 申请证书，注意：这里需要放行80端口。</p>
+  <p><img src="images/dj70.png" width="750" height="517" alt=""/></p>
+  <p>证书会自动续期，无需手动操作。如需手动更新，可以在申请证书处选择 “3” 强制更新证书。</p>
+  <p><strong>五、BBR 加速</strong></p>
+  <p>输入&ldquo;18&rdquo; 启用或禁用 BBR ，再根据提示再输入“1”启用 BBR。  </p>
+  <p><strong><img src="images/dj71.png" width="750" height="501" alt=""/></strong></p>
+  <p><strong>验证 BBR 是否成功启用：</strong><br>
+    执行以下命令，确认 BBR 已被启用：</p>
+	
+  <p class="copy_layout">
+    <span class="copy-text" id="copyButton2">复制</span>
+    <span class="copy-content" id="copyText2">  sysctl net.ipv4.tcp_available_congestion_control</span> </p>
+	
+<p>输出结果应包含 bbr，表示 BBR 已成功启用。</p>
+<p><strong>六、配置节点使用</strong></p>
+<p>面板设置路径：<br>
+  设置——TLS——入站管理——用户管理</p>
+<p>操作步骤较多，Anytls | Hysteria2 | VLESS + Reality 节点参数设置，请<a href="https://youtu.be/tNcjsqhZVuA?si=83y3nKrOVhLKEU8s" target="_blank"> 观看视频</a></p>
+<p><strong>七、客户端下载</strong></p>
+<p>v2rayN（电脑端）：【<a href="https://github.com/2dust/v2rayn" target="_blank">点击进入</a>】<br>
+  Clash Meta for Android（安卓端）：【<a href="https://github.com/MetaCubeX/ClashMetaForAndroid/releases" target="_blank">点击进入</a>】<br>
+  Shadowrocket（IOS端）：注册免费美区苹果ID教程 OR <a href="https://lu.xintaifree.com/" target="_blank">购买美区 Apple ID 成品</a></p>
+<p><strong>八、放行端口操作</strong></p>
+<p>请务必放行相关端口：3X-UI面板端口 / 80 / 443，放行指令：</p>
+<p class="copy_layout">
+  <span class="copy-text" id="copyButton3">复制</span> 
+  <span class="copy-content" id="copyText3"> iptables -I INPUT -p tcp --dport 端口 -j ACCEPT<br>
+	</span>
+</p>
+	
+	<blockquote style="background-color: #fffbe6; border-left: 4px solid #ffe58f; padding: 12px 16px; margin: 16px 0; color: #333333; font-size: 14px;">
+  💡 <strong>提示：</strong> 为避免端口被拦截导致节点无法连通，自建节点建议直接执行以下命令一键关闭防火墙（生产环境/建站服务器请慎用）：
+</blockquote>
+	
+<p class="copy_layout"><span class="copy-text" id="copyButton4">复制</span>
+  <span class="copy-content" id="copyText4"> iptables -P INPUT ACCEPT && iptables -P FORWARD ACCEPT && iptables -P OUTPUT ACCEPT && iptables -F<br>
+	</span></p>
+
+	
+<p><strong>九、常见问题与解决</strong></p>
+<p>问题1：SSL 证书申请失败</p>
+<ol>
+  <li>确保域名已解析到服务器 IP</li>
+  <li>确保 80 端口已放行
+  <br>
+</li>
+</ol>
+<p>问题2：V2rayN 导入节点测速显示 -1</p>
+<ol>
+  <li>更改内核为：sing_box</li>
+  <li>开启跳过证书验证</li>
+  <li>检查端口是否放行</li>
+</ol>
+<p><strong>📌 总结</strong></p>
+<p>  这个搭建过程适合初学者，步骤清晰，问题少。如果你在搭建过程中遇到其他问题，可以在评论区留言，我会尽力帮助解决。</p>
+<p>希望这篇文章对你有帮助！如果觉得有用，记得点赞收藏哦~</p>
+<p><strong>🚀 下一期预告 </strong></p>
+<p> 👉 S-UI 与 3X-UI 两种面板共存搭建教程（新手可直接照做）</p>
+<p>3X-UI 入门搭建教程：<a href="https://www.kejixiaolu.com/djvps/dj14.html" target="_blank">点击教程</a></p>
+<p>&nbsp;</p>
+<p></p>
+	<script type="text/javascript" src="../css/copytext.js"></script>
+<!--内容区域结束-->
+</div>
+
+</div>
+	
+<div class="video_list">
+<!--相关视频开始-->
+
+
+<!--相关视频结束-->
+</div>
+
+</div>
+
+<footer class="footer">
+<div class="footer_nav">
+Copyright &copy; 2026 科技小露 
+<a href="../index.html">首页</a><a href="https://www.youtube.com/channel/UCM2DUcnTAgSGgTLNrlwMjVQ" target="_blank">YouTube频道</a><a href="../contact.html">联系我们</a> </div>
+<div class="tips">
+我是小露，我的博客主要分享科技和软件教学视频，偶尔也会分享生活vlog，谢谢你的关注！<br>
+*本站部分内容来自网络，如果您是内容或软件的作者，不希望您的内容在本站展示，请联系我们，谢谢！
+</div>
+</footer>
+
+</body>
+</html>
